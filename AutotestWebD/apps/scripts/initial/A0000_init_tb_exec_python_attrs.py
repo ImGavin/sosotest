@@ -27,7 +27,7 @@ from bs4 import BeautifulSoup
 #时间处理相关的库
 import datetime,time,calendar
 #数学处理
-import math,cmath,decimal
+import math,cmath,decimal,random
 #造假数据
 from faker import Faker
 #web请求相关

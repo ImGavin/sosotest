@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 #时间处理相关的库
 import datetime,time,calendar
 #数学处理
-import math,cmath,decimal
+import math,cmath,decimal,random
 #web请求相关
 import requests
 #异常处理
