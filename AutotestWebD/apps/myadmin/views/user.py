@@ -148,7 +148,7 @@ def editUser(request):
         if requestDict["pwd"] == "" and requestDict["pwd1"] == "":
             del requestDict["pwd1"]
             pwdMd5 = hashlib.md5()
-            pwdMd5.update("123456".encode("utf-8"))
+            pwdMd5.update("Ss.xdf@20#3".encode("utf-8"))
             requestDict["pwd"] = pwdMd5.hexdigest()
             UserService.updateUser(requestDict)
             return HttpResponse(ApiReturn().toJson())

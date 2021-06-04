@@ -265,8 +265,8 @@ var orderBy = "u.state desc, u.id desc";
     };
 
     context.resetPwd = function () {
-        $("#passWord").val("123456");
-        $("#passWord1").val("123456");
+        $("#passWord").val("Ss.xdf@20#3");
+        $("#passWord1").val("Ss.xdf@20#3");
     };
     
     context.EnterPress = function () {

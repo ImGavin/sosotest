@@ -120,7 +120,7 @@ def setTeamLeader(request):
             adminUser = TbAdminUser()
             adminUser.loginName = loginName
             pwdMd5 = hashlib.md5()
-            pwdMd5.update("123456".encode("utf-8"))
+            pwdMd5.update("Ss.xdf@20#3".encode("utf-8"))
             password = pwdMd5.hexdigest()
             adminUser.passWord = password
             adminUser.userName = userResult["userName"]

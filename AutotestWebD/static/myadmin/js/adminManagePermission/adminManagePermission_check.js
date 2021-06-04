@@ -184,7 +184,7 @@ var orderBy = "t.state desc, t.id desc";
     };
 
     context.resetPwd = function () {
-        $("#passWord").val("123456");
+        $("#passWord").val("Ss.xdf@20#3");
     };
 
     context.EnterPress = function () {

@@ -110,7 +110,7 @@ def editAdminUser(request):
         if requestDict["passWord"] == "" and requestDict["passWord1"] == "":
             del requestDict["passWord1"]
             pwdMd5 = hashlib.md5()
-            pwdMd5.update("123456".encode("utf-8"))
+            pwdMd5.update("Ss.xdf@20#3".encode("utf-8"))
             requestDict["passWord"] = pwdMd5.hexdigest()
             AdminUserService.updateAdminUser(requestDict)
             return HttpResponse(ApiReturn().toJson())
