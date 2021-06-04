@@ -176,7 +176,12 @@ def transferListToStringByTag(varsList,splitTag = ";"):
     return retString[:-1]
 
 def replacedForIntoDB(str):
-    return pymysql.escape_string(str)
+    # https://coco56.blog.csdn.net/article/details/107430933
+    # install/require.txt 中 PyMySQL==0.8.1
+    # return pymysql.escape_string(str)
+
+    # 172.26.130.111 服务器上 PyMySQL==1.0.2
+    return pymysql.converters.escape_string(str)
 
 def replacedForDictKey(str):
     return  str
