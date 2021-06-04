@@ -415,9 +415,11 @@ def REDIS_GET(value,context,strTobeProcessed = ""):
                 retV = redisHand.get_data_for_data_keyword(key)
                 return retV
             except:
-                retMsg = "CASE_ERROR:关键字REDIS_GET没有找到这个key[%s]>" % key
-                context.setERROR( retMsg)
-                return retMsg
+                # 找不到key就返回空字符串
+                # retMsg = "CASE_ERROR:关键字REDIS_GET没有找到这个key[%s]>" % key
+                # context.setERROR(retMsg)
+                # return retMsg
+                return ""
         except:
             retMsg = "CASE_ERROR:关键字REDIS_GET调用时Redis数据库%s连接失败>" % dbKey
             context.setERROR( retMsg)
