@@ -251,11 +251,13 @@ div.menu ul li a:active
     color: #cfdbe6; /* 文字颜色 */
     text-decoration: none; /* 不显示超链接下划线 */
 }
-.menuClassSelectLi{
+div.menu ul li a.menuClassSelectLi{
     background-color: #bfcbd6; /* 背景色 */
     color: #2a3f54; /* 文字颜色 */
     text-decoration: none; /* 不显示超链接下划线 */
 }
+/* 所有class为menu的div中的ul中的a样式(选中状态时的样式) */
+
     .topLineMenuSpan{  width: 80%;font-size: 20px;padding-top: 10px;padding-bottom: 10px;  }
 
     .httpFormDataLabelCss{
@@ -487,7 +489,6 @@ div.menu ul li a:active
     {% if isReleaseEnv %}
         <div class="nav_menu">
     {% else %}
-{#        <div class="nav_menu">#}
         <div class="nav_menu" style="background-color: red">
     {% endif %}
     <nav>
@@ -496,11 +497,11 @@ div.menu ul li a:active
         </div>
         <div class="menu">
                      <span class="nav toggle topLineMenuSpan">
-                     <ul >
+                     <ul>
                      {% if menu.HttpInterface == 1 %}
                          {% if menuGroup == "HTTP_TEST" %}
                              <li>
-                                <a href="/interfaceTest/HTTP_InterfaceCheck" >HTTP</a>
+                                <a href="/interfaceTest/HTTP_InterfaceCheck" class="menuClassSelectLi">HTTP</a>
                              </li>
                          {% else %}
                              <li>
@@ -511,7 +512,7 @@ div.menu ul li a:active
                      {% if menu.DubboInterface == 1 %}
                          {% if menuGroup == "DUBBO_TEST" %}
                              <li>
-                                <a href="/dubbo/interfaceList">DUBBO</a>
+                                <a href="/dubbo/interfaceList" class="menuClassSelectLi">DUBBO</a>
                              </li>
                          {% else %}
                              <li>
@@ -523,7 +524,7 @@ div.menu ul li a:active
 
                      {% if menuGroup == "DATA_SERVICE" %}
                          <li>
-                            <a href="/mockserver/HTTP_InterfaceCheck">数据服务</a>
+                            <a href="/mockserver/HTTP_InterfaceCheck" class="menuClassSelectLi">数据服务</a>
                          </li>
                      {% else %}
                          <li>
@@ -533,7 +534,7 @@ div.menu ul li a:active
 
                      {% if menuGroup == "CONFIG" %}
                          <li>
-                            <a href="{% url 'HTTP_UserEnvUriConf' %}">配置管理</a>
+                            <a href="{% url 'HTTP_UserEnvUriConf' %}" class="menuClassSelectLi">配置管理</a>
                          </li>
                      {% else %}
                          <li>
@@ -571,15 +572,15 @@ div.menu ul li a:active
                  </span>
         </div>
 
-                              {% if menu.help_docs == 1 %}
+                        {% if menu.help_docs == 1 %}
                              <div style="width: 3rem;height: 3rem;position: fixed;bottom: 2rem;right: 0.2rem;z-index: 9999;">
                                 <a href="/gitbook" target="_blank" title="使用帮助"><i class="fa fa-header"></i><i class="fa fa-header"></i><br>帮助</a>
                              </div>
-                          {% endif %}
+                        {% endif %}
         <ul class="nav navbar-nav navbar-right" style="width:10%;">
             <li class="">
                 <a href="javascript:void(0);" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <span>{{ request.session.userName }}</span><span class=" fa fa-angle-down"></span>
+                    <span>{{ request.session.userName }} </span><span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:void(0);" onclick="modPwd();">修改密码</a></li>
@@ -610,7 +611,7 @@ div.menu ul li a:active
                 }
 
             } else {
-                alert("请改失败，请输入新密码！");
+                alert("修改失败，请输入新密码！");
             }
         }
 

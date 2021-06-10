@@ -4,5 +4,5 @@ if "%%i"=="pythonroot" set pythonroot=%%j
 if "%%i"=="pythonroot_test" set pythonroot_test=%%j
 if "%%i"=="releaseSubDIR" set releaseSubDIR=%%j
 )
-%pythonroot% ../AutotestWebD/manage.py runserver 0.0.0.0:80
+%pythonroot% ../AutotestWebD/manage.py runserver 0.0.0.0:8000
 pause
