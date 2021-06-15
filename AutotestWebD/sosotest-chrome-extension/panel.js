@@ -1,8 +1,8 @@
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 // ---- ---- ---- ---- ajax
 
-var serviceHost = "http://demo.domain.com";
-// var serviceHost = "http://127.0.0.1";
+// var serviceHost = "http://demo.domain.com";
+var serviceHost = "http://172.26.130.111";
 $("#jump").attr("href",serviceHost);
 
 const sendAjax = {
