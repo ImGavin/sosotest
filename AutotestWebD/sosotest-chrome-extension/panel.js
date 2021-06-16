@@ -2,7 +2,7 @@
 // ---- ---- ---- ---- ajax
 
 // var serviceHost = "http://demo.domain.com";
-var serviceHost = "http://172.26.130.111";
+var serviceHost = "http://172.26.130.111:8000";
 $("#jump").attr("href",serviceHost);
 
 const sendAjax = {
@@ -57,9 +57,9 @@ const channel = chrome.runtime.connect(null, {
 // 监听channel消息
 channel.onMessage.addListener(result => {
 
-    const { isSuccess, data, mssage } = result;
+    const { isSuccess, data, message } = result;
     if (!isSuccess) {
-        document.querySelector('#error').innerHTML += mesage;
+        document.querySelector('#error').innerHTML += message;
         return;
     }
 
@@ -206,11 +206,11 @@ function saveTestCase() {
     if(checkList.length === 0){
         $("#error").text("未勾选请求信息");
         $("#titleDiv").show();
-        return
+        return;
     }
     var dataList = [];
     for (var index = 0;index < checkList.length;index ++){
-        dataList.push($("#"+checkList[index]).parent().parent().data())
+        dataList.push($("#"+checkList[index]).parent().parent().data());
     }
     var data = {"request":JSON.stringify(dataList)};
     var htmlObj = $.ajax({url:serviceHost+"/interfaceTest/HTTP_TestCasePlugIn",type:"POST",data:data,async:false});

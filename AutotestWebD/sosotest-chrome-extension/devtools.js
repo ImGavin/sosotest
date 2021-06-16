@@ -8,7 +8,7 @@ chrome.devtools.panels.create(
   'sosotest-network',
 
   // iconPath
-  null,
+  'index.jpg',
 
   // pagePath
   'panel.html'
@@ -89,9 +89,9 @@ const handleHttp = async args => {
         method,
         queryString,
         url,
-          headers,
-          cookies,
-          postData,
+        headers,
+        cookies,
+        postData,
         response: content,
       }
     };
