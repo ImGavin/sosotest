@@ -147,9 +147,10 @@ class MockHttpService(object):
     @staticmethod
     def interfaceSaveEdit(request,interfaceData):
         interfaceObj = Tb4MockHttp.objects.filter(mockId=interfaceData["mockId"])
-        if interfaceObj:
-            if interfaceObj[0].addBy == "" or interfaceObj[0].addBy == None:
-                interfaceData['addBy'] = interfaceData['modBy']
+
+        # if interfaceObj:
+        #     if interfaceObj[0].addBy == "" or interfaceObj[0].addBy == None:
+        #         interfaceData['addBy'] = interfaceData['modBy']
         whether_change = False
         for tmpk in interfaceData:
             dstValue = interfaceData[tmpk]

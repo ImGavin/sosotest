@@ -45,10 +45,15 @@ def getCorrectMockModel(request,service,tagKey,url):
     processedReqHeader = {}
     for pk, pv in request.META.items():
         if pk.startswith("HTTP_"):
-            processedReqHeader[pk[5:]] = pv
+            # Django request.META 拿到的 Header 都是大写的，且中横线，都给处理为下划线了
+            # https://www.cnblogs.com/zhangqunshi/p/8432209.html
+            # 这里给转换回来，-两侧的单词首字母大写
+            k = '-'.join(i.capitalize() for i in pk[5:].split('_'))
+            processedReqHeader[k] = pv
 
     # 处理特殊header，content type等
     processedReqHeader['Content-Type'] = request.META['CONTENT_TYPE']
+    # print(processedReqHeader)
 
     theEncoding = request.encoding
     if theEncoding == None:
@@ -81,7 +86,7 @@ def getCorrectMockModel(request,service,tagKey,url):
                 tobeProcessedBody = str(reqBodyBytes)
                 reqBody = tobeProcessedBody[2:-1] if len(tobeProcessedBody) < 1000 else tobeProcessedBody[2:999] + "\r\n(请求体超长，后续省略...)"  # 去掉开头的b' 和 结尾的 ' 最多拿1000个字符。
         else:
-            #入股不是formdata，那么就直接byte转换看效果
+            #如果不是formdata，那么就直接byte转换看效果
             tobeProcessedBody = str(request.body)
             reqBody = tobeProcessedBody[2:-1] if len(tobeProcessedBody) < 1000 else tobeProcessedBody[2:999]+"\r\n(请求体超长，后续省略...)" #去掉开头的b' 和 结尾的 ' 最多拿1000个字符。
 
@@ -241,7 +246,7 @@ def processAdvancedMode(mostPipeiMockInfo,request,reqUrl,reqParam,reqBody,proces
             "reqUrl":reqUrl, # mock的接口url
             "reqParam":reqParam, #请求行中的参数字符串 k=1&m=2
             "reqBody": reqBody,  # request body
-            "reqHeader": processedReqHeader,  # 请求header dict key都是大写
+            "reqHeader": processedReqHeader,  # 请求header dict
 
             "GET": request.GET, # GET dict
             "POST": request.POST, # POST dict
@@ -350,8 +355,8 @@ def mock(request,service,tagKey,httpConfKey,url):
             bodyType = None
             bodyContent = None
 
-        if "HOST" in processedReqHeader.keys():
-            del processedReqHeader['HOST']
+        if "Host" in processedReqHeader.keys():
+            del processedReqHeader['Host']
         tcResp = HttpProcesserV2(method = request.method.upper(),
                                  host = reqHost,
                                  url = url,
