@@ -45,14 +45,17 @@
                 {% if token %}
 <div class="x_content">
    <pre>#/bin/bash
-#这是执行http任务的示例demo，copy到jenkins job中，修改头部变量即可
+#这是执行http任务的示例，copy到jenkins job中，修改头部变量即可
 
 domain="http://{{ host }}/invoke"
 token="{{ token }}"
 testEnv="test1"
+# comments 不要出现中文，curl 处理有点儿问题
 comments="http任务执行CI示例"
 executeTaskId="HTTP_TASK_12"
 isSendMail="1"
+# emailList 参数如果不传，会取任务配置里获取邮件列表，如果获取不到就报错了，如果传了就只以 emailList为准
+emailList="demo1@qq.com,demo2@qq.com"
 {% if menu.StatisticTask %}
 ciType="daily"
 statisticTaskId="1"
