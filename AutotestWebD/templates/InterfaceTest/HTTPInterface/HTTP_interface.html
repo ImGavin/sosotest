@@ -76,7 +76,7 @@
                   <div class="x_title">
                       <h2 class="topH">{{ text.subPageTitle }}</h2>
 
-                      <h2 class="subNavH2Style topButton">
+                      <h2 class="subNavH2Style">
                         <a href="javascript:void(0);" onclick="httpRequestDatagramToInterfaceCase()">
                           <button class="btn btn-warning">
                               报文转用例
@@ -106,30 +106,30 @@
                       </div>
                         {% if option == "edit" or option == "check" %}
                                 <div class="form-group" >
-                                    <label class="control-label col-md-min-1 font-label">接口编号</label>
-                                    <div class="col-lg-8">
+                                    <label class="control-label col-md-min-1" style="margin-left:2%">接口编号&nbsp;&nbsp;</label>
+                                    <div class="col-lg-8" style="width:74%">
                                         <input type="text" id="interfaceId" class="form-control col-md-7 col-xs-12" disabled value="">
                                     </div>
                                 </div>
                         {% endif %}
                       <div class="form-group">
-                        <label class="control-label col-md-min-1 font-label">接口名称 <span class="required">*</span>
+                        <label class="control-label col-md-min-1" style="margin-left:2%">接口名称 <span class="required">*</span>
                         </label>
-                        <div class="col-lg-8">
+                        <div class="col-lg-8" style="width:74%">
                           <input  id="name" placeholder="请输入接口名称" type="text"  required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-min-1 font-label" for="last-name">接口描述 <span class="required">*</span>
+                        <label class="control-label col-md-min-1" style="margin-left:2%" for="last-name">接口描述 <span class="required">*</span>
                         </label>
-                        <div class="col-lg-8">
+                        <div class="col-lg-8" style="width:74%">
                             <textarea type="text" id="describe" required="required" class="form-control col-md-7 col-xs-12 Fixed-width"
                             placeholder="请输入接口描述"
                             ></textarea>
                         </div>
                       </div>
                         <div class="form-group">
-                            <label class="control-label col-md-min-1" style="margin-left: 2%;white-space: nowrap">{{ groupLevel1 }}</label>
+                            <label class="control-label col-md-min-1" style="margin-left: 2%;white-space: nowrap">{{ groupLevel1 }}&nbsp;&nbsp;</label>
                             <div class="col-lg-2" style="width: 13.5%">
                                 <select class="form-control" id="businessLine" onchange="switchModule($(this).val())">
                                     {% for business in businessLine %}
@@ -185,23 +185,23 @@
                                 <div id="interfaceTabContent" class="tab-content">
                                     <div class="tab-pane fade active in" id="requestBody">
                                         <div class="form-group" style="margin-left: -2%">
-                                             <div  class="col-lg-2" style="width:16%;padding-right: 0px">
+                                             <div  class="col-lg-2" style="width:15%;padding-left: 3px">
                                                 <select class="form-control mySelect2ForURI" id="URI">
                                                     {% for u in uri %}
                                                         <option value="{{ u.uriKey }}" title="服务KEY[{{ u.uriKey }}]：{{ u.uriDesc }}" style="min-height: 34px !important;">{{ u.alias }}</option>
                                                     {% endfor %}
                                                 </select>
                                             </div>
-                                            <div  class="col-lg-2" style="width:17%;padding-right: 0px;padding-left: 0px">
-                                                <button id="useCustomUriBtn" style="width:100%;padding-top: 6px;padding-bottom: 6px;background-color: #CCFFFF;border-color: #99FFFF" onclick="useCustomToggle()" type="button" class="btn btn-lg">
+                                            <div  class="col-lg-2" style="width:25%;padding-left: 0px">
+                                                <button id="useCustomUriBtn" style="font-size: 16px;width:100%;padding-top: 6px;padding-bottom: 6px;background-color: #CCFFFF;border-color: #99FFFF" onclick="useCustomToggle()" type="button" class="btn btn-lg">
                                                     <i class="fa fa-hand-o-left"></i>使用服务配置地址</button>
                                                 <input type="checkbox" id="useCustomUri" checked style="display:none;" />
 
                                             </div>
-                                            <div class="col-lg-2" style="width:23%;padding-right: 0px;padding-left: 0px" >
+                                            <div class="col-lg-2" style="width:45%;padding-left: 0px" >
                                                 <input type="text"  style="border-radius:0px;height: 38px;resize:none" id="customUri" class="form-control" placeholder="自定义请求地址,例:http://127.0.0.1" title="请输入自定义请求地址,例:http://127.0.0.1"/>
                                             </div>
-                                             <div  class="col-lg-2" style="width:20%;padding-right: 0px;padding-left: 0px">
+                                             <div  class="col-lg-2" style="width:15%;padding-left: 0px">
                                                 <select class="form-control " id="redirectSelect">
                                                     <option value="1" title="自动重定向" style="min-height: 34px !important;">自动重定向</option>
                                                     <option value="0" title="不自动重定向" style="min-height: 34px !important;">不自动重定向</option>
@@ -209,7 +209,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group" style="margin-left: -2%">
-                                            <div class="col-lg-2" style="width:16%;padding-right: 0px">
+                                            <div class="col-lg-2" style="width:15%;padding-left: 3px">
                                                 <select class="form-control"  id="methodSelect" onchange="changeBodyTab($(this).val())" style="border-top-right-radius:0em;border-bottom-right-radius:0em;">
                                                     <option value="GET">GET</option>
                                                     <option value="POST" selected="">POST</option>
@@ -221,13 +221,13 @@
                                                 </select>
                                             </div>
 
-                                            <div class="col-lg-2" style="width:40%;padding-right: 0px;padding-left: 0px" >
+                                            <div class="col-lg-2" style="width:55%;padding-left: 0px" >
                                                 <input onfocus="resetGlobalElement($(this),'')" type="text" name="URL" style="border-radius:0px;height: 38px;resize:none" id="URL" class="form-control" placeholder="接口URL,例:/appapi/product/getSpuListByScence" title="请输入接口URL,例:/appapi/product/getSpuListByScence"/>
                                             </div>
-                                        <div class="col-lg-1" style="width:10%;padding-right: 0px;padding-left: 0px" >
+                                        <div class="col-lg-1" style="width:15%;padding-left: 0px" >
                                                 <input type="text" class="form-control" style="border-top-left-radius:0em;border-bottom-left-radius:0em;height: 38px;" placeholder="超时时间" title="超时时间:为可以等待的最大的接口返回时间,单位秒,默认20" id="timeout">
                                             </div>
-                                            <div class="col-lg-1" style="width:10%;padding-right: 0px;padding-left: 0px" >
+                                            <div class="col-lg-1" style="width:15%;padding-left: 0px" >
                                                 <input type="text" class="form-control" style="border-top-left-radius:0em;border-bottom-left-radius:0em;height: 38px;" placeholder="性能时间" title="性能时间:为预期的接口请求的返回时间,单位秒,默认1" id="performanceTime">
                                             </div>
 
