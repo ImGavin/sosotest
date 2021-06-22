@@ -14,8 +14,11 @@ from apps.version_manage.views import version_show
 
 from apps.task_suite.views import http_task_suite
 from apps.config.views import page_error
+from apps.common.index import WebIndex
 
 urlpatterns = [
+    url(r'^index$', WebIndex.index),
+
     url(r'^$', user_login.index, ),
     url(r'^user/login$', user_login.index),
     url(r'^user/logout$', user_login.logout, name="logout"),
