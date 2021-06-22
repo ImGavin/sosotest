@@ -359,7 +359,7 @@ STATICFILES_DIRS = (
 )
 
 LOGIN_URL = "/"
-NO_AUTH_URLS = ["/admin/","/invoke","/mock/","/readme","/webportal","/reports","/s/","/static/","/user/login","/user/dologin","/myadmin/login",
+NO_AUTH_URLS = ["/index","/admin/","/invoke","/mock/","/readme","/webportal","/reports","/s/","/static/","/user/login","/user/dologin","/myadmin/login",
                 "/ui_report","/updateLevel","/batchTask","/uploadAPK","/uploadAPP","/myadmin/logout", "/myadmin/changeLog/check",
                 "/myadmin/userLog/check","/tools/deploymentCallBack","/tools/doDeployment","/interfaceTest/HTTP_GlobalVarsGetForId",
                 "/interfaceTest/HTTP_GlobalVarsSetForId","/interfaceTest/HTTP_GlobalTextGetForId","/interfaceTest/HTTP_GlobalTextSetForId",
