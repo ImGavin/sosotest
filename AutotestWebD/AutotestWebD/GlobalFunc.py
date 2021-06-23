@@ -19,6 +19,7 @@ def menu(request):
         "/interfaceTest/HTTP_operationInterface",
         "/interfaceTest/HTTP_operationTestCase",
         "/interfaceTest/importLogPage",
+        "/interfaceTest/ChromePluginDoc",
         "/interfaceTest/HTTP_operationTask",
         "/interfaceTest/HTTP_operationTaskSuite",
     ]

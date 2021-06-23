@@ -4,6 +4,8 @@ from apps.common.func.CommonFunc import *
 import datetime,time
 from urllib.parse import urlparse
 from apps.common.model.RedisDBConfig import *
+from apps.common.func.WebFunc import *
+
 
 def interface_plug_in(request):
     redisKey = "%s" % (round(time.time() * 1000))
@@ -30,3 +32,8 @@ def getRedisIntrerface(request):
 
 
     return HttpResponse(ApiReturn(body=interfaceData).toJson())
+
+def getChromePluginDoc(request):
+    context = {}
+    context.update(getConfigs(request))
+    return render(request, 'InterfaceTest/HTTPInterface/ChromePluginDoc.html', context)

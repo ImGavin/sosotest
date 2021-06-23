@@ -1,0 +1,49 @@
+{% include 'InterfaceTest/head.html'%}
+<!-- Main content starts -->
+<div class="content">
+    <!-- Sidebar -->
+    {% include 'InterfaceTest/HTTPMenu.html' %}
+    <!-- Sidebar ends -->
+    <!-- Main bar -->
+    <!-- Main bar -->
+    <div class="right_col" role="main" style="min-height: 1657px;">
+        <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                  <div class="col-xs-12 form-group pull-right top_search">
+                    <h3>Chrome插件说明</h3>
+                  </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+<!--<a href="/static/soso_extensions/sosotest-chrome-extension.crx">Chrome插件-crx版</a>-->
+<!--crx版本：<br>
+如果是Chrome 67以前的版本，直接打开扩展程序的开发者模式后，拖入浏览器安装即可。<br>
+如果是67之后的Chrome版本，可以选择zip版安装，或者使用Chrome插件伴侣安装，参考链接：<a href="https://blog.csdn.net/qq_42690685/article/details/81039700 ">Chrome插件伴侣安装</a><br>
+zip版本：<br>-->
+<pre style="font-family: FontAwesome; line-height: 13px">
+    <p style="font-weight: bold">插件下载：</p>
+    <a style="color: #1a6ec7" href="/static/soso_extensions/sosotest-chrome-extension.zip">Chrome插件-zip版</a>
+
+    <p style="font-weight: bold">安装说明：</p>
+    1、下载后解压出文件夹 sosotest-chrome-extension。<br>
+    2、打开Chrome浏览器，在地址栏输入 chrome://extensions，回车。<br>
+    3、点击按钮【加载已解压的扩展程序】，然后选择解压后的文件夹 sosotest-chrome-extension，然后点击确定。
+
+    <p style="font-weight: bold">使用说明：</p>
+    1、先打开Chrome，然后登录自动化测试平台。<br>
+    2、在同一个chrome中，打开一个新的Chrome tab，点击 F12，点击右侧的 sosotest-network.<br>
+    3、在地址栏输入地址进行请求。<br>
+    4、插件中会显示所有的http请求，点击要添加的接口，会直接跳转到用例添加页面。<br>
+    5、然后就可以调试等，完成后保存即可。
+
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Content ends -->
+{% include 'InterfaceTest/foot.html'%}

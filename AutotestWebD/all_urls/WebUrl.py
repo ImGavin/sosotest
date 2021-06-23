@@ -56,6 +56,7 @@ urlpatterns = [
     url(r'^interfaceTest/HTTP_InterfaceGetAutoFillData$', http_interface.interfaceGetAutoFillData, name="HTTP_InterfaceGetAutoFillData"),
 
     # 插件录入
+    url(r'^interfaceTest/ChromePluginDoc$', http_interface_plug_in.getChromePluginDoc, name="ChromePluginDoc"),
     url(r'^interfaceTest/HTTP_InterfacePlugIn$', http_interface_plug_in.interface_plug_in ),
     url(r'^interfaceTest/HTTP_InterfacePlugInGetData$', http_interface_plug_in.getRedisIntrerface,name="getRedisInterfaceData"),
 
