@@ -1,8 +1,5 @@
 {% include 'InterfaceTest/head.html'%}
 <!-- Main content starts -->
-<script type="text/javascript">
-
-</script>
  <style>
         .ue-container {
             width: 60%;
@@ -175,9 +172,9 @@
 
                       </div>
                     </div>
-                       <div id="fade" class="black_overlay" style="display: none; height: 974px;"></div>
+                       <div id="fade" class="black_overlay"></div>
 
-                      <div id="addEnvUriDiv" class="white_content x_panel" style="display: none;width:50%;margin-top: -35px">
+                      <div id="addEnvUriDiv" class="white_content x_panel">
                       <div class="x_title">
                           <h2>配置服务请求地址</h2>
                             <button class="btn btn-info pull-right" style="margin-left: 10px" onclick="CloseDiv('addEnvUriDiv','fade')"><i class="fa fa-remove"></i>
@@ -189,23 +186,25 @@
 
                               <div id="taskContrast" class="form-group"></div>
                               <div class="widget-foot">
-                                  环境：
-                                  <select id="httpConfKeyAddSelect" class="form-control" style="width: 300px;">
+                                  请求环境：
+                                  <select id="httpConfKeyAddSelect" class="form-control" style="width: 300px">
                                     {% for hc in envConfList %}
                                         <option value="{{ hc.httpConfKey }}" title="{{ hc.httpConfDesc }}">{{ hc.httpConfKey }}({{ hc.alias }})</option>
                                     {% endfor %}
                                   </select>
                                   <br>
-                                  服务：
+                                  <br>
+                                  请求服务：
                                   <select id="uriKeyAddSelect" class="form-control" style="width: 300px;">
                                     {% for u in uri %}
                                         <option value="{{ u.uriKey }}" title="{{ u.uriDesc }}">{{ u.uriKey }}[{{ u.alias }}]</option>
                                     {% endfor %}
                                   </select>
                                   <br>
+                                  <br>
                                   请求地址：
-                                  <input type="text" id="requestAddrAddText" value="" class="form-control" />
-                                <br>
+                                  <input type="text" id="requestAddrAddText" value="" class="form-control" style="margin-left: 68px; width: 90%; margin-top: -25px"/>
+                                  <br>
                                   <button class="btn btn-info pull-right" style="margin-left: 20px"
                                           onclick="CloseDiv('addEnvUriDiv','fade')">关闭
                                   </button>
@@ -408,13 +407,13 @@
             var obshowdiv =  $('#'+show_div);
             var offtop=obshowdiv.offset().top;
             var offleft=obshowdiv.offset().left;
-            obshowdiv.css("top",offtop+40+"px");
-            obshowdiv.css("left",offleft+40+"px");
+            obshowdiv.css("top",offtop+50+"px");
+            obshowdiv.css("left",offleft+20+"%");
             obshowdiv.show();
 
             var obbgdiv = $('#'+bg_div);
             obbgdiv.show();
-            obbgdiv.css("top",offtop+0+"px");
+            obbgdiv.css("top",offtop-20+"px");
             obbgdiv.css("left",offleft+0+"px");
             $('html,body').animate({scrollTop:offtop}, 800);
         }
@@ -445,7 +444,14 @@
                 async: false,
                 type: "POST",
                 success:function (response) {
-                    alert(response.message);
+                    if(response.message == '添加成功！'){
+                        CloseDiv('addEnvUriDiv','fade');
+                        Toast(response.message);
+                        selected();
+                    }else{
+                        // alert(response.message);
+                        Toast(response.message);
+                    }
                 }
             });
         }
@@ -453,15 +459,12 @@
         function delEnvUri(id) {
             if(confirm("确认删除请求地址配置 "+id+" ?")){
                 if(confirm("一旦删除无法恢复，确认删除?")){
-
                     htmlobj=$.ajax({url:"{% url 'HTTP_DelEnvUri' %}?id="+id,async:false});
                     if(JSON.parse(htmlobj.responseText)["code"] != 10000){
                         alert(htmlobj.responseText);
                     }
                     selected();
-
                 }
-
             }
         }
 
@@ -633,6 +636,20 @@
             $("#surprise").click();
             $("#surprise2").click();
         };
+
+    function Toast(msg,duration){
+        duration=isNaN(duration)?3000:duration;
+        var m = document.createElement('div');
+        m.innerHTML = msg;
+        m.style.cssText="max-width:60%;min-width: 300px;padding:0 15px;height: 50px;color: rgb(255, 255, 255);line-height: 50px;text-align: center;border-radius: 4px;position: fixed;top: 40%;left: 55%;transform: translate(-50%, -50%);z-index: 999999;background: rgba(0, 0, 0,.7);font-size: 18px;";
+        document.body.appendChild(m);
+        setTimeout(function() {
+            var d = 0.5;
+            m.style.webkitTransition = '-webkit-transform ' + d + 's ease-in, opacity ' + d + 's ease-in';
+            m.style.opacity = '0';
+            setTimeout(function() { document.body.removeChild(m) }, d * 1000);
+        }, duration);
+    }
     </script>
     <!-- Content ends -->
 {% include 'InterfaceTest/foot.html'%}

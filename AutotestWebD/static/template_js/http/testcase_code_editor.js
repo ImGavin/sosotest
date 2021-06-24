@@ -35,7 +35,7 @@ function initAllEditor(stepNum){
     });
     codeEditor["after_testCaseStep_"+stepNum].on("blur",function(editor,change){
         setTimeout(function(){
-            codeEditor["after_testCaseStep_"+stepNum].setValue(codeEditor["after_testCaseStep_"+stepNum].getValue().trim().replace("\t","    "));
+            // codeEditor["after_testCaseStep_"+stepNum].setValue(codeEditor["after_testCaseStep_"+stepNum].getValue().trim().replace("\t","    "));
             renderDivByData(codeEditor["after_testCaseStep_"+stepNum].getValue(),"commonValAfterInputLinkDiv");
           },200);
     });
