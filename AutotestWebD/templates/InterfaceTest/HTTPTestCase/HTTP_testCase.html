@@ -373,8 +373,8 @@ function Checkall() {
                         {% if option != "add" %}
                             {% if option != "copy" %}
                                 <div class="form-group" >
-                                    <label class="control-label col-md-min-1">用例编号</label>
-                                    <div class="col-lg-8">
+                                    <label class="control-label col-md-min-1" style="margin-left:3%;padding-right: 0px">用例编号 &nbsp;</label>
+                                    <div class="col-lg-8" style="width:74%">
                                         <input type="text" id="caseIdInput" class="form-control col-md-7 col-xs-12" disabled value="">
                                     </div>
                                 </div>
@@ -382,23 +382,23 @@ function Checkall() {
                             {% endif %}
                         {% endif %}
                       <div class="form-group">
-                        <label class="control-label col-md-min-1">用例名称 <span class="required">*</span>
+                        <label class="control-label col-md-min-1" style="margin-left:3%;padding-right: 0px">用例名称 <span class="required">*</span>
                         </label>
-                        <div class="col-lg-8">
+                        <div class="col-lg-8" style="width:74%">
                           <input  id="name" placeholder="请输入用例名称" type="text"  required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-min-1" for="last-name">用例描述 <span class="required">*</span>
+                        <label class="control-label col-md-min-1" for="last-name" style="margin-left:3%;padding-right: 0px">用例描述 <span class="required">*</span>
                         </label>
-                        <div class="col-lg-8">
+                        <div class="col-lg-8" style="width:74%">
                             <textarea type="text" id="describe" required="required" class="form-control col-md-7 col-xs-12 Fixed-width"
                             placeholder="请输入用例描述"
                             ></textarea>
                         </div>
                       </div>
                      <div class="form-group">
-                            <label class="control-label col-md-min-1">{{ groupLevel1 }}</label>
+                            <label class="control-label col-md-min-1" style="margin-left: 3%;white-space: nowrap;padding-right: 0px">{{ groupLevel1 }} &nbsp;</label>
                             <div class="col-lg-2" style="width: 13.5%">
                                 <select class="form-control" id="caseBusinessLine" onchange="switchModule($(this).val(),'caseModules')">
                                     {% for business in businessLine %}
@@ -406,7 +406,7 @@ function Checkall() {
                                     {% endfor %}
                                 </select>
                             </div>
-                            <label class="control-label col-md-min-1" style="width:4.3%;">{{ groupLevel2 }}</label>
+                            <label class="control-label col-md-min-1" style="width:4.3%;white-space: nowrap">{{ groupLevel2 }}</label>
                             <div class="col-lg-2" style="width: 13.5%">
                                 <select class="form-control" id="caseModules">
                                     {% for m in modules %}
@@ -414,7 +414,7 @@ function Checkall() {
                                     {% endfor %}
                                 </select>
                             </div>
-                            <label class="control-label col-md-min-1" style="width:4.3%;">来源</label>
+                            <label class="control-label col-md-min-1" style="width:4.3%;white-space: nowrap">来源</label>
                             <div class="col-lg-2" style="width: 13.5%">
                                 <select class="form-control" id="caseSources">
                                      {% for s in source %}
@@ -422,7 +422,7 @@ function Checkall() {
                                     {% endfor %}
                                 </select>
                             </div>
-                            <label class="control-label col-md-min-1" style="width:4.3%;">优先级</label>
+                            <label class="control-label col-md-min-1" style="width:4.3%;white-space: nowrap">优先级</label>
                             <div class="col-lg-2" style="width: 13.5%">
                                 <select class="form-control" id="testCaseLevel">
                                     <option value="0">高</option>
@@ -436,17 +436,17 @@ function Checkall() {
                       <div class="form-group" style="margin-bottom: 0px">
                           <hr>
                         <h2 style="width: 20%;float: left">步骤详情</h2>
-                           <button  id="showAllStepDiv" type="button" class="btn btn-primary btn-sm" style="border-color:#428bca;float: right;margin-right: 30%;margin-top: 5px" onclick="showAllStepDiv()">打开所有步骤</button>
+                           <button  id="showAllStepDiv" type="button" class="btn btn-primary btn-sm" style="border-color:#428bca;float: right;margin-right: 17%;margin-top: 5px" onclick="showAllStepDiv()">打开所有步骤</button>
                       <button  id="openDivBtn" type="button" class="btn btn-primary btn-sm" style="margin-right: 1%;float: right;border-color:#428bca;margin-top: 5px"  onclick="openDiv('getCaseList','bgdiv')">选择单接口</button>
                       </div>
-                     <table id="stepGroup"  width="75%">
+                     <table id="stepGroup"  style="width:88%; margin-left: 3.5%">
 
                       </table>
 
 
                     </div>
                     <div class="ln_solid"></div>
-                    <div style="width:65%;" class="col-lg-12">
+                    <div style="width:84%;" class="col-lg-12">
                     {% if option == "add" %}
                         {% if 'add' in  permissionsList %}
                             <button style="float: right" type="button" class="btn btn-success btn-lg" onclick="saveOrDebug('save')">保存</button>
@@ -1484,7 +1484,7 @@ function Checkall() {
                 codeType.css("width", "150px");
                 break;
             case "application/json":
-                codeType.css("width", "200px");
+                codeType.css("width", "190px");
                 break;
             case "application/javascript":
                 codeType.css("width", "260px");

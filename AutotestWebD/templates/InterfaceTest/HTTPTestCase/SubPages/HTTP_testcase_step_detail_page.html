@@ -1,6 +1,6 @@
-            <div class="form-group" style="margin-bottom: 0px;margin-top: 15px">
+            <div class="form-group" style="margin-bottom: 0px;margin-top: 15px;">
 
-            <label class="control-label col-md-min-1">{{ groupLevel1 }}</label>
+            <label class="control-label col-md-min-1" style="padding-right: 0px;margin-top: 3px;">{{ groupLevel1 }}</label>
             <div class="col-lg-3" style="width:21%;">
                 <select class="form-control" name="businessLine" >
                     {% for business in businessLine %}
@@ -8,7 +8,7 @@
                     {% endfor %}
                 </select>
             </div>
-            <label class="control-label col-md-min-1">{{ groupLevel2 }}</label>
+            <label class="control-label col-md-min-1"  style="padding-right: 0px;margin-top: 3px;">{{ groupLevel2 }}</label>
             <div class="col-lg-3" style="width:21%;">
                 <select class="form-control" name="modules">
 {#                    {% for m in modules %}#}
@@ -17,7 +17,7 @@
                 </select>
             </div>
 
-            <label class="control-label col-md-min-1">来源</label>
+            <label class="control-label col-md-min-1"  style="padding-right: 0px;margin-top: 3px;">来源</label>
             <div class="col-lg-3" style="width:21%;" >
                 <select class="form-control" name="sources">
                      {% for s in source %}
@@ -28,28 +28,28 @@
             </div>
 
             <div class="form-group">
-                <div class="col-lg-11" style="width: 88%;margin-top: 20px;margin-left: 10px;">
-{#                    <ul id="interfaceTab" class="nav nav-tabs">#}
-{#                        <li><a href="#valBeforeTab" name="masterTabBeforeVal" name1="switchTab"#}
-{#                               onclick="$('#btnDiv').css('margin-top','0px')" data-toggle="tab">准备</a></li>#}
-{#                        <li class="active"><a href="#requestBody" name="masterTabRequestBody" name1="switchTab"#}
-{#                                              onclick="$('#btnDiv').css('margin-top','0px')" data-toggle="tab">执行信息</a>#}
-{#                        </li>#}
-{#                        <li><a href="#valAfterTab" name="masterTabAfterVal" name1="switchTab"#}
-{#                               onclick="$('#btnDiv').css('margin-top','0px')" data-toggle="tab">断言恢复</a></li>#}
-{#                    </ul>#}
+                <div class="col-lg-11" style="width: 93%;margin-top: 10px;margin-left: 10px;">
+<!--{#                    <ul id="interfaceTab" class="nav nav-tabs">#}-->
+<!--{#                        <li><a href="#valBeforeTab" name="masterTabBeforeVal" name1="switchTab"#}-->
+<!--{#                               onclick="$('#btnDiv').css('margin-top','0px')" data-toggle="tab">准备</a></li>#}-->
+<!--{#                        <li class="active"><a href="#requestBody" name="masterTabRequestBody" name1="switchTab"#}-->
+<!--{#                                              onclick="$('#btnDiv').css('margin-top','0px')" data-toggle="tab">执行信息</a>#}-->
+<!--{#                        </li>#}-->
+<!--{#                        <li><a href="#valAfterTab" name="masterTabAfterVal" name1="switchTab"#}-->
+<!--{#                               onclick="$('#btnDiv').css('margin-top','0px')" data-toggle="tab">断言恢复</a></li>#}-->
+<!--{#                    </ul>#}-->
                   <div>
                         <h2>准备</h2>
                   </div>
-                    <div id="interfaceTabContent" class="tab-content" style="margin-top: 5px">
+<!--                    <div id="interfaceTabContent" class="tab-content" style="margin-top: 5px">-->
 {#                        <div class="tab-pane fade" name="masterTabContentBeforeVal" id="valBeforeTab" name1="switchDiv"#}
 {#                             style="margin-left: 10px;margin-right: 10px">#}
                             <div class="form-group" >
-                                <div class="col-lg-7" style="width: 100%">
+                                <div class="col-lg-7" style="width: 100%;margin-left: 10px">
                                     <div id="myTabContent1" class="tab-content">
                                         <div class="tab-pane fade active in" name="commonValBeforeDiv" name1="switchDiv" id="commonValBefore">
                                             <div class="form-group" name="beforeNotSort">
-                                                <div class="col-lg-12" style="max-width: 1000px">
+                                                <div class="col-lg-12 codeEdtCss">
                                                     <textarea type="text"
                                                               onfocus="resetGlobalElement($(this),'')"
 
@@ -67,29 +67,29 @@
 
 {#                        </div>#}
 
-{#                        <div class="tab-pane fade active in" name="masterTabContentRequestBody" id="requestBody" name1="switchDiv"#}
-{#                             style="margin-left: 10px;margin-right: 10px">#}
+<!--{#                        <div class="tab-pane fade active in" name="masterTabContentRequestBody" id="requestBody" name1="switchDiv"#}-->
+<!--{#                             style="margin-left: 10px;margin-right: 10px"> </div>#}-->
                     <div>
                         <h2>执行信息</h2>
                     </div>
                         <div class="form-group">
-                            <div class="col-lg-2" style="padding-right: 0px">
+                            <div class="col-lg-2" style="width:15%;margin-left:20px">
                                 <select class="form-control" style="border-radius:0px;" name="URI">
                                     {% for u in uri %}
                                             <option value="{{ u.uriKey }}" title="{{ u.uriKey }}">{{ u.alias }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
-                            <div  class="col-lg-2" style="width:20%;padding-right: 0px;padding-left: 0px">
-                                <button name="useCustomUriBtn" style="width: 100%;padding-top: 6px;padding-bottom: 6px;background-color: #CCFFFF;border-color: #99FFFF" onclick="useCustomToggle($(this))" type="button" class="btn btn-lg">
+                            <div class="col-lg-2" style="width:23%;padding-left: 0px">
+                                <button name="useCustomUriBtn" style="font-size:16px; width: 100%;padding-top: 7px;padding-bottom: 8px;background-color: #CCFFFF;border-color: #99FFFF" onclick="useCustomToggle($(this))" type="button" class="btn btn-lg">
                                     <i class="fa fa-hand-o-left"></i>使用服务配置地址</button>
                                 <input type="checkbox" name="useCustomUri" checked style="display:none;" />
 
                             </div>
-                            <div class="col-lg-2" style="width:33%;padding-right: 0px;padding-left: 0px">
+                            <div class="col-lg-2" style="width:44%;padding-left: 0px">
                                 <input type="text" name="customUri" style="border-radius:0px;height: 38px;resize:none"  class="form-control" placeholder="请输入自定义请求地址,例:http://127.0.0.1" title="请输入自定义请求地址,例:http://127.0.0.1">
                             </div>
-                            <div  class="col-lg-2" style="width:24%;padding-right: 0px;padding-left: 0px">
+                            <div class="col-lg-2" style="width:15%;padding-left: 0px">
                                  <select class="form-control " name="redirectSelect">
                                     <option value="1" title="自动重定向" style="min-height: 34px !important;">自动重定向</option>
                                     <option value="0" title="不自动重定向" style="min-height: 34px !important;">不自动重定向</option>
@@ -97,7 +97,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-lg-2" style="padding-right: 0px">
+                            <div class="col-lg-2" style="width:15%; margin-left:20px">
                                 <select class="form-control" name="methodSelect" onchange="changeBodyTab($(this))"
                                         style="border-top-right-radius:0em;border-bottom-right-radius:0em;">
                                     <option value="GET">GET</option>
@@ -110,19 +110,19 @@
                                 </select>
                             </div>
 
-                            <div class="col-lg-2" style="width:53%;padding-right: 0px;padding-left: 0px">
+                            <div class="col-lg-2" style="width:52%; padding-left: 0px">
                                 <input type="text" name="URL" style="border-radius:0px;height: 38px;resize:none" onfocus="resetGlobalElement($(this),'')"
                                        class="form-control"
                                        placeholder="请输入接口URL,例:/appapi/product/getSpuListByScence"/>
                             </div>
-                            <div class="col-lg-1" style="width:12%;padding-right: 0px;padding-left: 0px">
+                            <div class="col-lg-1" style="width:15%; padding-left: 0px">
                                 <input type="text" class="form-control"
                                        style="border-top-left-radius:0em;border-bottom-left-radius:0em;height: 38px"
                                        placeholder="超时时间:为可以等待的最大的接口返回时间,单位秒,默认20"
                                        title="超时时间:为可以等待的最大的接口返回时间,单位秒,默认20"
                                        name="timeout">
                             </div>
-                            <div class="col-lg-1" style="width:12%;padding-right: 0px;padding-left: 0px">
+                            <div class="col-lg-1" style="width:15%; padding-left: 0px">
                                 <input type="text" class="form-control"
                                        style="border-top-left-radius:0em;border-bottom-left-radius:0em;height: 38px"
                                        placeholder="性能时间:为预期的接口请求的返回时间,单位秒,默认1"
@@ -131,7 +131,7 @@
                             </div>
                         </div>
                             <div class="form-group">
-                                <div class="col-lg-12">
+                                <div class="col-lg-12" style="margin-left: 10px">
                                     <ul id="myTab2" class="nav nav-tabs">
                                         <li><a href="#paramsTab" name="paramsTab" data-toggle="tab" name1="switchTab">PARAMS</a></li>
                                         <li><a href="#headerTab" name="headerTab" data-toggle="tab" name1="switchTab">HEADER(0)</a></li>
@@ -223,27 +223,27 @@
                                             </div>
                                         </div>
                                         <div class="tab-pane fade active in" id="bodyTab" name="bodyTabContent" name1="switchDiv"
-                                             style="margin-left: 20px;margin-right: 20px">
-                                            <div class="form-group" style="margin-bottom: 10px">
-                                                <div class="col-lg-12" style="font-size: 15px">
-                                                    <div class="col-lg-9" style="margin-top: 10px;margin-left: 20px"
+                                             style="margin-left: 10px;margin-right: 13px">
+                                            <div class="form-group" style="margin-bottom: 10px;padding-right: 23px">
+                                                <div class="col-lg-12" style="font-size: 13px">
+                                                    <div class="col-lg-9" style="margin-top: 10px"
                                                          name="radioParentDiv">
                                                         <label style="font-weight:normal;cursor:pointer"><input
                                                                 type="radio" name="body" name1="bodyNone"
                                                                 onclick="clickBodyRadio($(this));"
-                                                                value="none"/>none</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                value="none"/>none</label>&nbsp;&nbsp;&nbsp;&nbsp;
                                                         <label style="font-weight:normal;cursor:pointer"><input
                                                                 type="radio" name="body"
                                                                 onclick="clickBodyRadio($(this));changeHeader($(this).parents('[name=\'dataContent\']').find(('[name=\'headerTbody\']')),'')"
-                                                                value="form-data"/>form-data</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                value="form-data"/>form-data</label>&nbsp;&nbsp;&nbsp;&nbsp;
                                                         <label style="font-weight:normal;cursor:pointer"><input
                                                                 type="radio" name="body" name1="xurlencode"
                                                                 onclick="clickBodyRadio($(this));changeHeader($(this).parents('[name=\'dataContent\']').find(('[name=\'headerTbody\']')),'application/x-www-form-urlencoded')"
-                                                                value="x-www-form-urlencoded"/>x-www-form-urlencoded</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                value="x-www-form-urlencoded"/>x-www-form-urlencoded</label>&nbsp;&nbsp;&nbsp;&nbsp;
                                                         <label style="font-weight:normal;cursor:pointer"><input
                                                                 type="radio" name="body"
                                                                 onclick="clickBodyRadio($(this));changeHeader($(this).parents('[name=\'dataContent\']').find(('[name=\'headerTbody\']')),'')"
-                                                                value="raw"/>raw</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                value="raw"/>raw</label>&nbsp;&nbsp;&nbsp;&nbsp;
                                                         <label style="font-weight:normal;cursor:pointer"><input
                                                                 type="radio" name="body"
                                                                 onclick="clickBodyRadio($(this));changeHeader($(this).parents('[name=\'dataContent\']').find(('[name=\'headerTbody\']')).eq(0),'')"
@@ -252,7 +252,7 @@
                                                     <div class="col-lg-2" style="display:none;" name="body-raw-select">
                                                         <select class="form-control" name="headerSelected"
                                                                 onchange="changeHeader($(this).parent().parent().parent().parent().parent().find('[name=\'headerTbody\']'),$(this).val());changeSelectWidth($(this));"
-                                                                style="margin-top: 5px;width: 80px">
+                                                                style="margin-top: 5px;width: 80px;padding-left: 0px">
                                                             <option value="Text" selected="">Text</option>
                                                             <option value="text/plain">Text(text/plain)</option>
                                                             <option value="application/json">JSON(application/json)
@@ -401,19 +401,19 @@
                                 </div>
 
                             </div>
-{#                        </div>#}
+<!--{#                        </div>#}-->
                      <div>
                         <h2>断言恢复</h2>
                     </div>
-{#                        <div class="tab-pane fade" name="masterTabContentAfterValTab" id="valAfterTab" name1="switchDiv"#}
-{#                             style="margin-right: 10px;margin-left: 10px">#}
+<!--{#                        <div class="tab-pane fade" name="masterTabContentAfterValTab" id="valAfterTab" name1="switchDiv"#}-->
+<!--{#                             style="margin-right: 10px;margin-left: 10px">#}-->
                             <div class="form-group">
-                                <div class="col-lg-7" style="width: 100%">
+                                <div class="col-lg-7" style="width: 100%; margin-left: 10px">
                                     <div class="tab-content">
                                         <div class="tab-pane fade active in"
                                              name="commonValAfterDiv" name1="switchDiv" id="commonValAfter">
                                             <div class="form-group"  >
-                                                <div class="col-lg-12" style="max-width: 1000px">
+                                                <div class="col-lg-12 codeEdtCss">
                                                     <textarea type="text"
                                                               onfocus="resetGlobalElement($(this),'')"
                                                               style="height: 100px;"
@@ -427,8 +427,8 @@
 
                                 </div>
                             </div>
-{#                        </div>#}
+<!--{#                        </div>#}-->
 
                     </div>
-                </div>
-            </div>
+<!--                </div>-->
+<!--            </div>-->

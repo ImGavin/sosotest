@@ -14,12 +14,13 @@ function initAllEditor(stepNum){
     codeEditor["before_testCaseStep_"+stepNum].on("focus",function(editor,change){
         resetGlobalElement(beforeElement,codeEditor["before_testCaseStep_"+stepNum]);
     });
-    // codeEditor["before_testCaseStep_"+stepNum].on("blur",function(editor,change){
-    //     setTimeout(function(){
-    //         codeEditor["before_testCaseStep_"+stepNum].setValue(codeEditor["before_testCaseStep_"+stepNum].getValue().trim().replace("\t","    "));
-    //         renderDivByData(codeEditor["before_testCaseStep_"+stepNum].getValue(),"commonValBeforeInputLinkDiv");
-    //       },200);
-    // });
+    codeEditor["before_testCaseStep_"+stepNum].on("blur",function(editor,change){
+        setTimeout(function(){
+            // codeEditor["before_testCaseStep_"+stepNum].setValue(codeEditor["before_testCaseStep_"+stepNum].getValue().trim().replace("\t","    "));
+            // renderDivByData(codeEditor["before_testCaseStep_"+stepNum].getValue(),"commonValBeforeInputLinkDiv");
+          },200);
+        renderDivByData(codeEditor["before_testCaseStep_"+stepNum].getValue(),"commonValBeforeInputLinkDiv");
+    });
     codeEditor["before_testCaseStep_"+stepNum].setOption("extraKeys", {
         Tab: newTab
     });
@@ -36,8 +37,9 @@ function initAllEditor(stepNum){
     codeEditor["after_testCaseStep_"+stepNum].on("blur",function(editor,change){
         setTimeout(function(){
             // codeEditor["after_testCaseStep_"+stepNum].setValue(codeEditor["after_testCaseStep_"+stepNum].getValue().trim().replace("\t","    "));
-            renderDivByData(codeEditor["after_testCaseStep_"+stepNum].getValue(),"commonValAfterInputLinkDiv");
+            // renderDivByData(codeEditor["after_testCaseStep_"+stepNum].getValue(),"commonValAfterInputLinkDiv");
           },200);
+        renderDivByData(codeEditor["after_testCaseStep_"+stepNum].getValue(),"commonValAfterInputLinkDiv");
     });
     codeEditor["after_testCaseStep_"+stepNum].setOption("extraKeys", {
         Tab: newTab
@@ -61,9 +63,9 @@ function dubboInitParameterEditor(stepNum){
     codeEditor["parameter_testCaseStep_"+stepNum].on("focus",function(editor,change){
         resetGlobalElement(parameterElement,codeEditor["parameter_testCaseStep_"+stepNum]);
     });
-    // codeEditor["parameter_testCaseStep_"+stepNum].on("blur",function(editor,change){
-    //     renderDivByData(codeEditor["parameter_testCaseStep_"+stepNum].getValue(),"commonValBeforeInputLinkDiv");
-    // });
+    codeEditor["parameter_testCaseStep_"+stepNum].on("blur",function(editor,change){
+        renderDivByData(codeEditor["parameter_testCaseStep_"+stepNum].getValue(),"commonValBeforeInputLinkDiv");
+    });
     codeEditor["parameter_testCaseStep_"+stepNum].setOption("extraKeys", {
         Tab: newTab
     });
