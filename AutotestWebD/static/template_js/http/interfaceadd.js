@@ -334,7 +334,7 @@ function changeSelectWidth(codeType) {
             codeType.css("width","150px");
             break;
         case "application/json":
-            codeType.css("width","200px");
+            codeType.css("width","190px");
             break;
         case "application/javascript":
             codeType.css("width","260px");

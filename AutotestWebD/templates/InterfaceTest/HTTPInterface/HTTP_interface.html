@@ -7,7 +7,7 @@
     }
     .children_line {
         margin-top: 5px;
-        margin-bottom: 15px;
+        margin-bottom: 5px;
         display: inline-block;
         _display: inline;
         *display: inline;
@@ -235,17 +235,17 @@
                                         </div>
 
                                          <div class="form-group" style="margin-left: -2%">
-                                                <div class="col-lg-12">
-                                                    <ul id="myTab2" class="nav nav-tabs "  style="margin-bottom: 0px;margin-top: 15px;">
+                                                <div class="col-lg-12" style="padding-left: 0px">
+                                                    <ul id="myTab2" class="nav nav-tabs "  style="margin-bottom: 2px;margin-top: 15px;">
                                                         <li style="margin-left: 0%;"><a href="#paramsTab" data-toggle="tab">PARAMS</a></li>
                                                         <li><a href="#headerTab" data-toggle="tab">HEADER(0)</a></li>
                                                         <li  class="active"><a href="#bodyTab" data-toggle="tab">BODY</a></li>
                                                     </ul>
 
-                                                    <div id="myTabContent2" class="tab-content" style="margin-left: 0%;margin-top: 5px">
+                                                    <div id="myTabContent2" class="tab-content" style="margin-left: 0%">
                                                         <div class="tab-pane fade" id="headerTab">
                                                             <div class="form-group">
-                                                                <div class="col-lg-12">
+                                                                <div>
                                                                     <table class="table" style="table-layout:fixed;" >
                                                                         <thead>
                                                                             <tr style="color: snow" bgcolor="##2A3F54">
@@ -256,8 +256,8 @@
                                                                         <tbody id="headerTbody" >
                                                                             <tr name="headerTr">
                                                                                 <td style="padding: 0px"><input class="form-control" onclick="addTableTr($(this).parent().parent().parent());$('[href=\'#headerTab\']').text('HEADER('+($('[name=\'headerTr\']').length-1)+')')" name="headerKey" onfocus="resetGlobalElement($(this),'')" style="background-color: rgb(183, 186, 189);border-radius:0px;"  /></td>
-                                                                                <td style="padding: 0px"><input class="form-control" onclick="addTableTr($(this).parent().parent().parent());$('[href=\'#headerTab\']').text('HEADER('+($('[name=\'headerTr\']').length-1)+')')" name="headerValue" onfocus="resetGlobalElement($(this),'')" style="background-color: rgb(183, 186, 189);border-radius:0px;width:95%;" />
-                                                                                <button class="btn btn-danger" style="float: right; margin-top: -35px; display: none;" onclick="$(this).parent().parent().remove();$('[href=\'#headerTab\']').text('HEADER('+($('[name=\'headerTr\']').length-1)+')')"><i class="fa fa-trash"></i></button></td>
+                                                                                <td style="padding: 0px"><input class="form-control" onclick="addTableTr($(this).parent().parent().parent());$('[href=\'#headerTab\']').text('HEADER('+($('[name=\'headerTr\']').length-1)+')')" name="headerValue" onfocus="resetGlobalElement($(this),'')" style="background-color: rgb(183, 186, 189);border-radius:0px;" />
+                                                                                <button class="btn btn-danger" style="float: right; margin-top: -32px; display: none;padding: 4px 8px" onclick="$(this).parent().parent().remove();$('[href=\'#headerTab\']').text('HEADER('+($('[name=\'headerTr\']').length-1)+')')"><i class="fa fa-trash"></i></button></td>
                                                                             </tr>
 
                                                                         </tbody>
@@ -268,12 +268,12 @@
                                                         </div>
                                                         <div class="tab-pane fade" id="paramsTab">
                                                             <div class="form-group">
-                                                                <div class="col-lg-12" >
+                                                                <div>
                                                                     <table class="table" style="table-layout:fixed;">
                                                                         <thead>
                                                                             <tr style="color: snow" bgcolor="#2A3F54">
-                                                                                <th style="font-weight: bold;width: 20%" >Key</th>
-                                                                                 <th style="font-weight: bold">Value  <button class="btn btn-info" onclick="toggleUrlEncode($(this),'params')" style="float: right;margin-top: -8px;margin-bottom: -8px">原始</button></th>
+                                                                                <th style="font-weight: bold;width: 20%;vertical-align: middle" >Key</th>
+                                                                                 <th style="font-weight: bold;vertical-align: middle">Value  <button class="btn btn-info" onclick="toggleUrlEncode($(this),'params')" style="float: right;padding: 0px 3px">原始</button></th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody id="paramsTbody">
@@ -282,8 +282,8 @@
                                                                                     <input class="form-control" onclick="addTableTr($(this).parent().parent().parent())" name="paramsKey" onfocus="resetGlobalElement($(this),'')" style="background-color: rgb(183, 186, 189);border-radius:0px;"  />
                                                                                 </td>
                                                                                 <td style="padding: 0px">
-                                                                                    <input class="form-control" onclick="addTableTr($(this).parent().parent().parent())" name="paramsValue" onfocus="resetGlobalElement($(this),'')" style="background-color: rgb(183, 186, 189);border-radius:0px;width:95%;" />
-                                                                                    <button class="btn btn-danger" style="display:none;float: right;margin-top: -35px;" onclick="$(this).parent().parent().remove()"><i class="fa fa-trash"></i></button>
+                                                                                    <input class="form-control" onclick="addTableTr($(this).parent().parent().parent())" name="paramsValue" onfocus="resetGlobalElement($(this),'')" style="background-color: rgb(183, 186, 189);border-radius:0px;" />
+                                                                                    <button class="btn btn-danger" style="display:none;float: right;margin-top: -32px;padding: 4px 8px" onclick="$(this).parent().parent().remove()"><i class="fa fa-trash"></i></button>
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
@@ -297,11 +297,11 @@
 
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane fade active in" id="bodyTab" style="margin-left: 20px;margin-right: 20px">
-                                                            <div class="form-group" style="margin-bottom: 10px">
-                                                                <div class="col-lg-12" style="font-size: 15px">
+                                                        <div class="tab-pane fade active in" id="bodyTab">
+                                                            <div class="form-group">
+                                                                <div class="col-lg-12">
                                                                     <div style="margin-top: 10px;" class="col-lg-10 father_line allRadioWidth">
-                                                                        <div class="children_line" style="margin-left: -30%;">
+                                                                        <div class="children_line" style="margin-left: -20%;">
                                                                             <div class="father_line">
                                                                                 <div class="children_line"><label class="col-lg-1 httpRawLabelCss"></label></div>
                                                                                 <div class="children_line"><input onfocus="resetGlobalElement($(this),'')" type="radio" name="body" onclick="clickBodyRadio();" checked value="none"/></div>
@@ -309,7 +309,7 @@
                                                                                 <div style="clear:both"></div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="children_line" style="margin-left: 2%">
+                                                                        <div class="children_line">
                                                                             <div class="father_line">
                                                                                 <div class="children_line">
                                                                                     <label class="col-lg-1 httpFormDataLabelCss father_line"></label>
@@ -339,7 +339,7 @@
                                                                                 <div style="clear:both"></div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="children_line radioMamargin">
+                                                                        <div class="children_line radioMamargin" style="margin-right: 20px">
                                                                             <div class="father_line">
                                                                                 <div class="children_line"><label class="col-lg-1 httpBinaryLabelCss"></label></div>
                                                                                 <div class="children_line"><input onfocus="resetGlobalElement($(this),'')" type="radio" name="body" onclick="clickBodyRadio();changeHeader('')" value="binary"/></div>
@@ -350,7 +350,7 @@
                                                                         <div style="clear:both"></div>
                                                                     </div>
                                                                     <div class="col-lg-2 rawSelect"  id="body-raw-select" style="display: none">
-                                                                        <select class="form-control"  id="headerSelected" onchange="changeHeader($(this).val());changeSelectWidth($(this));" style="margin-top: 5px;width: 80px">
+                                                                        <select class="form-control"  id="headerSelected" onchange="changeHeader($(this).val());changeSelectWidth($(this));" style="margin-top: 5px;width: 80px;font-size: 13px;margin-left: -60px">
                                                                             <option value="Text" selected="">Text</option>
                                                                             <option value="text/plain">Text(text/plain)</option>
                                                                             <option value="application/json">JSON(application/json)</option>
@@ -375,15 +375,15 @@
                                                                         <tr name="body-form-Tr">
                                                                             <td style="padding: 0px">
                                                                                 <input class="form-control" onclick="addTableTr($(this).parent().parent().parent())" name="bodyFormKey" onfocus="resetGlobalElement($(this),'')" style="background-color: rgb(183, 186, 189);border-radius:0px;width: 70%;"  />
-                                                                                <select class="form-control" name="bodyFormSelected" disabled  onchange="formDataInput_file($(this))" style="background-color: rgb(183, 186, 189);width: 30%;float: right;margin-top: -34px">
+                                                                                <select class="form-control" name="bodyFormSelected" disabled  onchange="formDataInput_file($(this))" style="background-color: rgb(183, 186, 189);width: 35%;float: right;margin-top: -34px;padding: 0px 0px">
                                                                                     <option value="text">text</option>
                                                                                     <option value="file">file</option>
                                                                                 </select>
                                                                             </td>
                                                                             <td style="padding: 0px">
-                                                                                <input class="form-control" onclick="addTableTr($(this).parent().parent().parent())" name="bodyFormValue" onfocus="resetGlobalElement($(this),'')" style="background-color: rgb(183, 186, 189);border-radius:0px;width:95%;" />
-                                                                                <button class="btn btn-danger" style="display:none;float: right; margin-top: -35px;" onclick="$(this).parent().parent().remove()"><i class="fa fa-trash"></i></button>
-                                                                                <div style="display:none;width:80%;margin-top: 3px" >
+                                                                                <input class="form-control" onclick="addTableTr($(this).parent().parent().parent())" name="bodyFormValue" onfocus="resetGlobalElement($(this),'')" style="background-color: rgb(183, 186, 189);border-radius:0px;" />
+                                                                                <button class="btn btn-danger" style="display:none;float: right; margin-top: -32px;padding: 4px 8px" onclick="$(this).parent().parent().remove()"><i class="fa fa-trash"></i></button>
+                                                                                <div style="display:none;width:90%;margin-top: 2px" >
                                                                                     <div class="btn_addPic">
                                                                                     <span>上传文件…</span><input onfocus="resetGlobalElement($(this),'')"
                                                                                         name="formDataInput" multiple
@@ -414,16 +414,16 @@
                                                                 <table class="table" style="table-layout:fixed;">
                                                                     <thead>
                                                                         <tr style="color: snow" bgcolor="#2A3F54">
-                                                                            <th style="font-weight: bold;width: 20%" >Key</th>
-                                                                            <th style="font-weight: bold">Value <button class="btn btn-info" onclick="toggleUrlEncode($(this),'x-www-form-urlencoded')" style="float: right;margin-top: -8px;margin-bottom: -8px">原始</button></th>
+                                                                            <th style="font-weight: bold;width: 20%;vertical-align: middle" >Key</th>
+                                                                            <th style="font-weight: bold;vertical-align: middle">Value <button class="btn btn-info" onclick="toggleUrlEncode($(this),'x-www-form-urlencoded')" style="float: right;padding: 0px 3px">原始</button></th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody id="x-www-form-urlencodedTbody">
                                                                         <tr name="x-www-form-urlencodedTr">
                                                                             <td style="padding: 0px"><input class="form-control" name="urlEncodeKey" onfocus="resetGlobalElement($(this),'')" onclick="addTableTr($(this).parent().parent().parent())" style="background-color: rgb(183, 186, 189);border-radius:0px;"  /></td>
                                                                             <td style="padding: 0px">
-                                                                                <input class="form-control" onfocus="resetGlobalElement($(this),'')" name="urlEncodeValue" onclick="addTableTr($(this).parent().parent().parent())" style="background-color: rgb(183, 186, 189);border-radius:0px;width: 95%" />
-                                                                                <button class="btn btn-danger" style="display:none;float: right;margin-top: -35px;" onclick="$(this).parent().parent().remove()"><i class="fa fa-trash"></i></button>
+                                                                                <input class="form-control" onfocus="resetGlobalElement($(this),'')" name="urlEncodeValue" onclick="addTableTr($(this).parent().parent().parent())" style="background-color: rgb(183, 186, 189);border-radius:0px;" />
+                                                                                <button class="btn btn-danger" style="display:none;float: right;margin-top: -32px;padding: 4px 8px" onclick="$(this).parent().parent().remove()"><i class="fa fa-trash"></i></button>
                                                                             </td>
                                                                         </tr>
                                                                     </tbody>
@@ -481,7 +481,7 @@
                         </div>
                     </div>
                     <div class="ln_solid" ></div>
-                    <div style="width:65%;" class="col-lg-12">
+                    <div style="width:80%;" class="col-lg-12">
                     {% if option == "add" or option == "addbymock" %}
                         {% if 'add' in  permissionsList %}
                         <button style="float: right" type="button" class="btn btn-success btn-lg" onclick="saveOrDebug('save')">&nbsp;&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;&nbsp;</button>
