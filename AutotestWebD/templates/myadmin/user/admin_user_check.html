@@ -60,6 +60,10 @@
             z-index: 1002;
             overflow: auto;
         }
+        tbody tr th,td{
+            text-align: center;
+            vertical-align: middle !important
+        }
     </style>
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -80,7 +84,7 @@
         <!-- Main row -->
         <div class="row">
             <div class="box" style="margin-bottom: auto">
-                <section class="content-header" style="padding-bottom: 15px;">
+                <section class="content-header">
                     <div style="height: 30px" id="queryStyle">
                         <span style="font-size: 15px;float:left;padding-top: 4px;margin-right: 10px">搜索条件:</span>
 
@@ -89,7 +93,7 @@
 
 
 
-                    <div class="nav-tabs-custom" style="cursor: move;margin-top: 10px">
+                    <div class="nav-tabs-custom" style="cursor: move;margin-top: 0px;margin-bottom: 0px;">
                         <!-- Tabs within a box -->
                         <ul style="margin-left: 20px;" class="nav nav-tabs  ui-sortable-handle">
                             <li class="active" style="margin-top: 10px"><a href="#userNameTab"
@@ -109,7 +113,7 @@
                                 <div class="box-body">
                                     <div class="form-horizontal">
                                         <div class="box-body">
-                                            <div class="form-group">
+                                            <div class="form-group" style="margin-bottom: 0px">
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="queryUserName"
                                                            placeholder="Account" onkeypress="EnterPress(event)">
@@ -126,7 +130,7 @@
                                 <div class="box-body">
                                     <div class="form-horizontal">
                                         <div class="box-body">
-                                            <div class="form-group">
+                                            <div class="form-group" style="margin-bottom: 0px">
                                                 <div class="col-sm-10">
                                                     <select class="form-control" id="queryType"
                                                             onchange="queryRequest()">

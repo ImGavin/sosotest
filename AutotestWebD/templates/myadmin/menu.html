@@ -4,7 +4,7 @@
     <section class="sidebar">
         <!-- Sidebar user panel -->
         <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
+<!--        <li class="header">MAIN NAVIGATION</li>-->
 
         {% if isSuperManager == 1 or "AdminUser" in permissionKeys or "AdminTeam" in permissionKeys or "AdminRole" in permissionKeys %}
             <li class="{{ user_check }} {{ team_check }} {{ role_check }} {{userRole_check}} treeview">

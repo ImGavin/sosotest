@@ -618,11 +618,11 @@ throw new Error('AdminLTE requires jQuery')
       }
 
       // Fix for the control sidebar height
-      var $controlSidebar = $(Selector.controlSidebar)
-      if (typeof $controlSidebar !== 'undefined') {
-        if ($controlSidebar.height() > postSetHeight)
-          $(Selector.contentWrapper).css('min-height', $controlSidebar.height())
-      }
+      // var $controlSidebar = $(Selector.controlSidebar)
+      // if (typeof $controlSidebar !== 'undefined') {
+      //   if ($controlSidebar.height() > postSetHeight)
+      //     $(Selector.contentWrapper).css('min-height', $controlSidebar.height())
+      // }
     }
   }
 
