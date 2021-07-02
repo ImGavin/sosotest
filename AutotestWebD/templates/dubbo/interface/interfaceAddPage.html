@@ -66,25 +66,24 @@
                         {% if option != "add" %}
                             {% if option != "copy" %}
                                 <div class="form-group" >
-                                    <label class="control-label col-md-min-1" style="white-space: nowrap;margin-right: 2%">接口编号</label>
-                                    <div class="col-lg-8">
+                                    <label class="control-label col-md-min-1" style="margin-left: 2%;padding-right: 0px">接口编号&nbsp;&nbsp;</label>
+                                    <div class="col-lg-8" style="width: 74%">
                                         <input type="text" id="interfaceId" class="form-control col-md-7 col-xs-12" disabled value="">
                                     </div>
                                 </div>
-                                {% else %}
                             {% endif %}
                         {% endif %}
                       <div class="form-group">
-                        <label class="control-label col-md-min-1" style="white-space: nowrap;margin-right: 2%">接口名称 <span class="required">*</span>
+                        <label class="control-label col-md-min-1" style="margin-left: 2%;padding-right: 0px">接口名称 <span class="required">*</span>
                         </label>
-                        <div class="col-lg-8">
+                        <div class="col-lg-8" style="width: 74%">
                           <input  id="name" placeholder="请输入接口名称" type="text"  required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-min-1" for="last-name" style="white-space: nowrap;margin-right: 2%">接口描述 <span class="required">*</span>
+                        <label class="control-label col-md-min-1" for="last-name" style="margin-left: 2%;padding-right: 0px">接口描述 <span class="required">*</span>
                         </label>
-                        <div class="col-lg-8">
+                        <div class="col-lg-8" style="width: 74%">
                             <textarea type="text" id="describe" required="required" class="form-control col-md-7 col-xs-12 Fixed-width"
                             placeholder="请输入接口描述"
                             ></textarea>
@@ -116,7 +115,7 @@
                       <div>
                         <h2>准备</h2>
                       </div>
-                         <div class="form-group"  style="margin-left: 2%">
+                         <div class="form-group">
                             <div  class="col-lg-8 dubboPrepareCss">
                                 <textarea type="text" onfocus="resetGlobalElement($(this),'')"
                                   class="form-control Fixed-width"
@@ -136,25 +135,25 @@
                                 <div id="interfaceTabContent" class="tab-content">
                                     <div class="tab-pane fade active in" id="requestBody" style="margin-left: 10px;margin-right: 10px">
                                         <div class="form-group" style="margin-left: 10%">
-                                            <div class="col-lg-2" style="width:16%;padding-right: 0px;padding-left: 0px" >
+                                            <div class="col-lg-2" style="width:15%;padding-left: 0px" >
                                                 <select class="form-control" style="border-radius:0px;" id="SYSTEM_KEY" onchange="refreshDubboInfos()">
                                                     {% for u in uri %}
                                                     <option value="{{ u.uriKey }}" title="{{ u.uriKey }}">{{ u.alias }}</option>
                                                     {% endfor %}
                                                 </select>
                                             </div>
-                                            <div  class="col-lg-2" style="width:17%;padding-right: 0px;padding-left: 0px">
-                                                <button id="useCustomUriBtn" style="width:100%;padding-top: 6px;padding-bottom: 6px;background-color: #CCFFFF;border-color: #99FFFF" onclick="useCustomToggle()" type="button" class="btn btn-lg">
+                                            <div  class="col-lg-2" style="width:25%;padding-left: 0px">
+                                                <button id="useCustomUriBtn" style="font-size:16px;width:100%;padding:7px;background-color: #CCFFFF;border-color: #99FFFF" onclick="useCustomToggle()" type="button" class="btn btn-lg">
                                                     <i class="fa fa-hand-o-left"></i>使用服务配置地址</button>
                                                 <input type="checkbox" id="useCustomUri" checked style="display:none;" />
 
                                             </div>
-                                            <div class="col-lg-2" style="width:48%;padding-right: 0px;padding-left: 0px" >
+                                            <div class="col-lg-2" style="width:60%;padding-left: 0px" >
                                                 <input type="text"  style="border-radius:0px;height: 38px;resize:none" id="customUri" class="form-control" placeholder="自定义请求地址,例:10.10.10.10:8888" title="请输入自定义请求地址,例:http://127.0.0.1"/>
                                             </div>
                                         </div>
                                         <div class="form-group" style="margin-left: 10%">
-                                            <div class="col-lg-1" style="width:16%;padding-right: 0px;padding-left: 0px" >
+                                            <div class="col-lg-1" style="width:15%;padding-left: 0px" >
                                                 <input onfocus="resetGlobalElement($(this),'')" type="text" class="form-control" style="border-top-left-radius:0em;border-bottom-left-radius:0em;display: none;" placeholder="超时时间(秒),默认20" id="timeout">
                                                 <select class="form-control" style="border-radius:0px;" id="ENVKEY_FOR_GETDUBBOINFO"  onchange="refreshDubboInfos()">
                                                     <option value="" title="">选择环境</option>
@@ -163,15 +162,15 @@
                                                     {% endfor %}
                                                 </select>
                                             </div>
-                                            <div class="col-lg-2" style="width:35%;padding-right: 0px;padding-left: 0px" >
+                                            <div class="col-lg-2" style="width:35%;padding-left: 0px" >
                                                 <input onfocus="hideFuzhuBar();inputServiceList($(this),$('#input_list_service'));" list="input_list_service" type="text" name="SERVICE_PATH" style="border-radius:0px;height: 38px;resize:none" id="SERVICE_PATH" class="form-control" placeholder="请输入服务的全路径,例:com.xxx.xxxx.XxxxxFacade"/>
                                                 <datalist id="input_list_service"></datalist>
                                             </div>
-                                            <div class="col-lg-1" style="width:20%;padding-right: 0px;padding-left: 0px" >
+                                            <div class="col-lg-1" style="width:33%;padding-left: 0px" >
                                                 <input onfocus="resetGlobalElement($(this),'');inputMethodList($(this),$('#input_list_method'));" list="input_list_method"  type="text" name="METHOD" style="border-radius:0px;height: 38px;resize:none" id="METHOD" class="form-control" placeholder="请输入接口,例:getSharePoolHouseInfo"/>
                                                 <datalist id="input_list_method"></datalist>
                                             </div>
-                                            <div class="col-lg-1" style="width:10%;padding-right: 0px;padding-left: 0px" >
+                                            <div class="col-lg-1" style="width:17%;padding-left: 0px" >
                                                 <select class="form-control" style="border-radius:0px;height: 38px;" id="encoding">
                                                     <option value="gb18030">GB18030</option>
                                                     <option value="utf8">UTF-8</option>
@@ -182,7 +181,7 @@
 
                                         </div>
                                          <div class="form-group dubboExeCss">
-                                                <div class="col-lg-12">
+                                                <div class="col-lg-12" style="padding-left: 7px">
 
                                                     <textarea type="text" class="form-control Fixed-width" style="width:100%;" onfocus="resetGlobalElement($(this),'')" name="URL" id="parameter" placeholder="请输入测试参数,多个参数使用半角逗号（,）间隔"></textarea>
 

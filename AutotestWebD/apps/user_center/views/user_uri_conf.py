@@ -270,7 +270,7 @@ def saveEnvUri(request):
         teuri.uriKey = uriKey
         teuri.addBy = request.session.get("loginName")
         teuri.save(force_insert=True)
-        return HttpResponse(ApiReturn(message="添加成功！！").toJson())
+        return HttpResponse(ApiReturn(message="添加成功！").toJson())
 
 def delAllUserUri(request):
     TbUserUri.objects.filter(addBy=request.session.get("loginName")).delete()

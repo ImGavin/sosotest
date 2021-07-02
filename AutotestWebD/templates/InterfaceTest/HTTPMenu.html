@@ -258,7 +258,7 @@ div.menu ul li a.menuClassSelectLi{
 }
 /* 所有class为menu的div中的ul中的a样式(选中状态时的样式) */
 
-    .topLineMenuSpan{  width: 80%;font-size: 20px;padding-top: 10px;padding-bottom: 10px;  }
+    .topLineMenuSpan{  width: 70%;font-size: 20px;padding-top: 10px;padding-bottom: 10px;  }
 
     .httpFormDataLabelCss{
         font-weight:normal;cursor:pointer;width: 20%!important;
@@ -326,20 +326,17 @@ div.menu ul li a.menuClassSelectLi{
         }
 
         .dubboPrepareCss {
-            width: 70%;
-            margin-left: 7%;
+            width: 74%;
+            margin-left: 9%;
         }
-
         .dubboAssetCss {
-            width: 70%;
-            margin-left: 8.5%;
+            width: 74%;
+            margin-left: 9%;
         }
-
         .dubboExeCss {
-            width: 84.8%;
-            margin-left: 8.7% !important;
+            /*width: 100%;*/
+            margin-left: 9% !important;
         }
-
         .topH {
             width: 12% !important;
         }
@@ -461,13 +458,21 @@ div.menu ul li a.menuClassSelectLi{
             width:74%;
             margin-left: 9%;
         }
+       .dubboPrepareCss {
+            width: 74%;
+            margin-left: 9%;
+        }
+       .dubboAssetCss {
+            width: 74%;
+            margin-left: 9%;
+       }
        .exeCss{
             width:74%;
             margin-left: 10%;
         }
        .dubboExeCss{
-            width: 100%;
-            margin-left: 7% !important;
+            /*width: 100%;*/
+            margin-left: 9% !important;
         }
        .topButton{
            width: 20% !important;
@@ -508,6 +513,18 @@ div.menu ul li a.menuClassSelectLi{
         .prepareCss{
             width:74%;
             margin-left: 9%;
+        }
+        .dubboPrepareCss {
+            width: 74%;
+            margin-left: 9%;
+        }
+        .dubboAssetCss {
+            width: 74%;
+            margin-left: 9%;
+        }
+        .dubboExeCss {
+            /*width: 100%;*/
+            margin-left: 9% !important;
         }
         .exeCss{
             width:74%;
@@ -615,12 +632,12 @@ div.menu ul li a.menuClassSelectLi{
                                 <a href="/gitbook" target="_blank" title="使用帮助"><i class="fa fa-header"></i><i class="fa fa-header"></i><br>帮助</a>
                              </div>
                         {% endif %}
-        <ul class="nav navbar-nav navbar-right" style="width:10%;">
+        <ul class="nav navbar-nav navbar-right" style="width:15%;">
             <li class="">
-                <a href="javascript:void(0);" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <a href="javascript:void(0);" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="padding: 13px;width: 160px">
                     <span>{{ request.session.userName }} </span><span class=" fa fa-angle-down"></span>
                 </a>
-                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                <ul class="dropdown-menu dropdown-usermenu pull-right" style="width: 160px">
                     <li><a href="javascript:void(0);" onclick="modPwd();">修改密码</a></li>
                     <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out pull-right"></i>退出登录</a></li>
                 </ul>
