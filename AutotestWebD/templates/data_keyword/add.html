@@ -1,6 +1,13 @@
 {% include 'InterfaceTest/head.html' %}
 <!-- Main content starts -->
-
+<style type="text/css">
+    label.control-label{
+        margin-left: 10px;
+    }
+    label + div{
+        width: 74% !important;
+    }
+</style>
 <div class="content">
     <!-- Sidebar -->
     {% include 'InterfaceTest/HTTPMenu.html' %}
@@ -41,7 +48,7 @@
 
                     {% if option != "add" and option != "copy" %}
                     <div class="form-group" >
-                        <label class="control-label col-md-min-1">接口编号</label>
+                        <label class="control-label col-md-min-1">编号 &nbsp;</label>
                         <div class="col-lg-8">
                             <input type="text" id="dataId" class="form-control col-md-7 col-xs-12" disabled value="">
                         </div>
@@ -49,7 +56,7 @@
                     {% endif %}
 
                       <div class="form-group">
-                        <label class="control-label col-md-min-1">概要 <span class="required">*</span>
+                        <label class="control-label col-md-min-1" style="margin-left: 10px">概要 <span class="required">*</span>
                         </label>
                         <div class="col-lg-8">
                           <input  id="title" placeholder="请输入概要" type="text"   class="form-control col-md-7 col-xs-12">
@@ -57,7 +64,7 @@
                       </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-min-1" for="last-name">描述 <span class="required">*</span>
+                        <label class="control-label col-md-min-1" for="last-name" >描述 <span class="required">*</span>
                         </label>
                         <div class="col-lg-8">
                             <textarea type="text" id="descText"  class="form-control col-md-7 col-xs-12 Fixed-width"
@@ -104,7 +111,7 @@ def YOUR_KEYWORD_HERE(value,context,strTobeProcessed = ""):
 
                                           <div class="clearfix"></div>
 
-                            <div id="buttonDiv" style="width:65%;" class="col-lg-12">
+                            <div id="buttonDiv" style="width: 80%; margin: 20px" class="col-lg-12">
                     {% if option == "add" %}
                         {% if 'add' in  permissionsList %}
                         <button style="float: right" type="button" class="btn btn-success btn-lg" onclick="saveOrDebug('save')">&nbsp;&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;&nbsp;</button>
@@ -137,7 +144,7 @@ def YOUR_KEYWORD_HERE(value,context,strTobeProcessed = ""):
 
                         <div class="col-lg-8">
                             <H3>相关解释</H3>
-<pre id="keywordCodeAnnoPre">已经引入的第三方可用包如下：
+<pre id="keywordCodeAnnoPre" style="width: 130%">已经引入的第三方可用包如下：
 {{ importStr }}
 
 函数定义以及装饰器引用，必须跟预置内容一致。
@@ -208,7 +215,7 @@ def DEMO_SELF_KEYWORD(value,context,strTobeProcessed = ""):
                 "2、log(logstr)\n" +
                 "打印函数执行中的输入，例如log('abc') 执行后会打印出abc。\n" +
                 "3、call(callStr)\n" +
-                "执行平台数据关键字，以及调用平台变量常量等，例如call('$VAR[key]')就是从获取平台变量key的值。\n" +
+                "执行平台数据关键字，以及调用平台变量常量等，例如call('$VAR[key]')就是从平台获取变量key的值。\n" +
                 "4、var(varkey, value = None)\n" +
                 "一个参数时从平台的变量池取值，两个参数时为平台的变量池赋值。\n" +
                 "5、gvar(gvarkey)\n" +
@@ -224,9 +231,9 @@ def DEMO_SELF_KEYWORD(value,context,strTobeProcessed = ""):
                 "8、execute_interface(*args)\n" +
                 "执行平台的HTTP接口用例，最后一个参数可以是IGNORE开头加_ALL _FAIL _ERROR _EXCEPTION的任意组合，忽略返回结果使用。\n" +
                 "9、execute_dubbo_interface(*arg)\n" +
-                "执行平台的DUBBO接口用例，最后一个参数可以是IGNORE开头加_ALL _FAIL _ERROR _EXCEPTION的任意组合，忽略返回结果使用。。\n" +
+                "执行平台的DUBBO接口用例，最后一个参数可以是IGNORE开头加_ALL _FAIL _ERROR _EXCEPTION的任意组合，忽略返回结果使用。\n" +
                 "10、execute_testcase(*arg)\n" +
-                "执行平台的HTTP业务流用例，最后一个参数可以是IGNORE开头加_ALL _FAIL _ERROR _EXCEPTION的任意组合，忽略返回结果使用。。\n" +
+                "执行平台的HTTP业务流用例，最后一个参数可以是IGNORE开头加_ALL _FAIL _ERROR _EXCEPTION的任意组合，忽略返回结果使用。\n" +
                 "11、asserts(assertStr)\n" +
                 "使用平台的ASSERT方式进行断言，例如 asserts('code')就是判断响应中有包含字符串code，类似于调用了平台的ASSERT(code)。\n" +
                 "12、set_result(testResult,assertMsg)\n" +
@@ -242,9 +249,9 @@ def DEMO_SELF_KEYWORD(value,context,strTobeProcessed = ""):
                 "数据库插入，第一个参数是service，不写默认default。\n" +
                 "17、redis_set(rediskey,value, timeout = None,db = 0, service=\"default\")\n" +
                 "redis设置值\n" +
-                "17、redis_get(rediskey, db = 0, service=\"default\")\n" +
+                "18、redis_get(rediskey, db = 0, service=\"default\")\n" +
                 "redis获取值\n" +
-                "17、redis_del(rediskey, db = 0, service=\"default\")\n" +
+                "19、redis_del(rediskey, db = 0, service=\"default\")\n" +
                 "redis删除值\n" +
                 "\n" +
                 "变量：\n" +

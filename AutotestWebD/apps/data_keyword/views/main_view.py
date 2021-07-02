@@ -100,12 +100,12 @@ def addPage(request,context):
     text = {}
     if request.GET.get("type","DATA_KEYWORD") == "DATA_KEYWORD":
         context["title"] = "添加自定义关键字"
-        text["pageTitle"] = "自定义关键字"
-        text["subPageTitle"] = "添加自定义关键字"
+        text["pageTitle"] = "添加自定义关键字"
+        text["subPageTitle"] = "自定义关键字"
     else:
         context["title"] = "添加PYTHON代码"
-        text["pageTitle"] = "PYTHON代码"
-        text["subPageTitle"] = "添加PYTHON代码"
+        text["pageTitle"] = "添加PYTHON代码"
+        text["subPageTitle"] = "PYTHON代码"
 
     context["text"] = text
 
@@ -159,7 +159,7 @@ def operationCheck(request,context):
     try:
         if request.GET.get("type", "DATA_KEYWORD") == "DATA_KEYWORD":
             context["title"] = "KEYWORD-" + request.GET.get("id")
-            if context["option"]== "select":
+            if context["option"]== "check":
                 text["pageTitle"] = "查看数据关键字"
                 text["subPageTitle"] = "数据关键字"
             elif context["option"] == "edit":
@@ -170,7 +170,7 @@ def operationCheck(request,context):
                 text["subPageTitle"] = "数据关键字"
         else:
             context["title"] = "PYTHON-" + request.GET.get("id")
-            if context["option"] == "select":
+            if context["option"] == "check":
                 text["pageTitle"] = "查看PYTHON代码"
                 text["subPageTitle"] = "PYTHON代码"
             elif context["option"] == "edit":

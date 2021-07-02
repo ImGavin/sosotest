@@ -50,22 +50,22 @@
                       <br>
                     <div class="" role="tabpanel" data-example-id="togglable-tabs">
                       <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist" style="margin-bottom: 0px">
-                        <li role="presentation" class="active" style="margin-left: -2%;margin-right: -0.5%"><a href="#caseFounder" role="tab" data-toggle="tab" aria-expanded="true" style="padding: 5px 5px;">接口创建人</a>
+                        <li role="presentation" class="active"><a href="#caseFounder" role="tab" data-toggle="tab" aria-expanded="true" style="padding: 5px 5px;">接口创建人</a>
                         </li>
-                          <li role="presentation" class="" style="margin-right: -0.5%"><a href="#caseId" role="tab" data-toggle="tab" aria-expanded="true" style="padding: 5px 5px;">接口编号</a>
+                          <li role="presentation" class=""><a href="#caseId" role="tab" data-toggle="tab" aria-expanded="true" style="padding: 5px 5px;">接口编号</a>
                         </li>
-                        <li role="presentation" class="" style="margin-right: -0.5%"><a href="#caseName" role="tab"  data-toggle="tab" aria-expanded="false" style="padding: 5px 5px;">接口名称</a>
+                        <li role="presentation" class=""><a href="#caseName" role="tab"  data-toggle="tab" aria-expanded="false" style="padding: 5px 5px;">接口名称</a>
                         </li>
-                        <li role="presentation" class="" style="margin-right: -0.5%"><a href="#caseDescribe" role="tab"  data-toggle="tab" aria-expanded="false" style="padding: 5px 5px;">接口描述</a>
+                        <li role="presentation" class=""><a href="#caseDescribe" role="tab"  data-toggle="tab" aria-expanded="false" style="padding: 5px 5px;">接口描述</a>
                         </li>
-                        <li role="presentation" class="" style="margin-right: -0.5%"><a href="#dubboSystem" role="tab"  data-toggle="tab" aria-expanded="false" style="padding: 5px 5px;">系统System</a>
+                        <li role="presentation" class=""><a href="#dubboSystem" role="tab"  data-toggle="tab" aria-expanded="false" style="padding: 5px 5px;">系统System</a>
                         </li>
-                          <li role="presentation" class="" style="margin-right: -0.5%"><a href="#dubboService" role="tab"  data-toggle="tab" aria-expanded="false" style="padding: 5px 5px;">服务ServiceClass</a>
+                          <li role="presentation" class=""><a href="#dubboService" role="tab"  data-toggle="tab" aria-expanded="false" style="padding: 5px 5px;">服务ServiceClass</a>
                         </li>
-                          <li role="presentation" class="" style="margin-right: -0.5%"><a href="#dubboMethod" role="tab"  data-toggle="tab" aria-expanded="false" style="padding: 5px 5px;">接口Method</a>
+                          <li role="presentation" class=""><a href="#dubboMethod" role="tab"  data-toggle="tab" aria-expanded="false" style="padding: 5px 5px;">接口Method</a>
                         </li>
 
-                          <li class="dropdown" style="margin-right: -0.5%">
+                          <li class="dropdown">
                             <a href="#"  class="dropdown-toggle" data-toggle="dropdown" style="padding: 5px 5px;"> {{ groupLevel1 }} <b class="caret"></b></a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
                                  <li><a href="#businessLineTab" id="businessLineCheckTab"  tabindex="-1" name="tabExecResult" data-toggle="tab" onclick="editBusinessLineCheckTab('')">&nbsp;</a></li>
@@ -74,20 +74,20 @@
                                 {% endfor %}
                             </ul>
                         </li>
-                        <li role="presentation" class="" style="margin-right: -0.5%"><a href="#moduleTab" role="tab" data-toggle="tab" aria-expanded="false" style="padding: 5px 5px;">{{ groupLevel2 }}</a>
+                        <li role="presentation" class=""><a href="#moduleTab" role="tab" data-toggle="tab" aria-expanded="false" style="padding: 5px 5px;">{{ groupLevel2 }}</a>
                         </li>
                       </ul>
                       <div id="myTabContent" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade active in" id="caseFounder" aria-labelledby="home-tab">
                           <div class="form-group">
-                            <div class="col-lg-8" style="margin-left: -1.3%;width: 65%;">
+                            <div class="col-lg-8">
                                 <input type="text" class="form-control" id="caseFounderInput" onkeypress="EnterPress(event)" placeholder="请输入接口创建人">
                             </div>
-                              <div class="col-lg-4" style="width: 35%;">
-                                  <span style="font-size: 15px;margin-top: 5px">快捷条件: </span>
-                              <button type="button" class="btn btn-success btn-xs" style="margin-bottom: -1px" onclick="inputVal('all')">所有</button>
-                              <button type="button" class="btn btn-success btn-xs" style="margin-bottom: -1px" onclick="inputVal('{{ userName }}')">{{ userName }}</button>
-                              <button id="hover-a" type="button" class="btn btn-success btn-xs" style="margin-bottom: -1px" onclick="createPeople(0)">其他</button>
+                              <div class="col-lg-4">
+                                  <span style="margin-top: 5px">快捷条件: </span>
+                              <button type="button" class="btn btn-success btn-xs" style="margin-bottom: 3px" onclick="inputVal('all')">所有</button>
+                              <button type="button" class="btn btn-success btn-xs" style="margin-bottom: 3px" onclick="inputVal('{{ userName }}')">{{ userName }}</button>
+                              <button id="hover-a" type="button" class="btn btn-success btn-xs" style="margin-bottom: 3px" onclick="createPeople(0)">其他</button>
                                   <div id="names" style="margin-top: 10px">
                             </div>
                                   </div>

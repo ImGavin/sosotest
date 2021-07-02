@@ -229,7 +229,7 @@ body.dashed .header{position:static;border-bottom:1px solid #ccc}
 .ban-q{overflow:hidden;background-color:#008df1;padding-top:28px}
 .ban-q .pic{float:right;width:735px;height:542px;overflow:hidden;margin-right:-35px;margin-left:8%}
 .ban-q .pic img{display:block;width:100%;height:100%}
-.ban-q .txt{overflow:hidden;font-size:20px;color:#fff;line-height:1.2em;padding-top:95px}
+.ban-q .txt{overflow:hidden;font-size:20px;color:#fff;line-height:1.2em;padding-top:60px}
 .ban-q .txt h3{font-size:44px;color:#fff;line-height:1.5em;margin-bottom:26px;height:3em;overflow:hidden}
 .ban-q .txt dl{overflow:hidden;margin:69px -12px 0}
 .ban-q .txt dd{float:left;width:50%;padding:0 12px}

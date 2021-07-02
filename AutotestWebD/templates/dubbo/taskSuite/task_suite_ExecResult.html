@@ -107,10 +107,10 @@
                                 <input type="text" class="form-control" id="taskFounderInput" onkeypress="EnterPress(event)" placeholder="请输入任务创建人  输入'all'查看所有任务">
                             </div>
                               <div class="col-lg-4" >
-                                  <span style="font-size: 15px;margin-top: 5px">快捷条件: </span>
-                              <button type="button" class="btn btn-success btn-xs" style="margin-bottom: -1px" onclick="inputVal('all')">所有</button>
-                              <button type="button" class="btn btn-success btn-xs" style="margin-bottom: -1px" onclick="inputVal('{{ request.session.userName }}')">{{ request.session.userName }}</button>
-                              <button id="hover-a" type="button" class="btn btn-success btn-xs" style="margin-bottom: -1px" onclick="createPeople(0)">其他</button>
+                                  <span style=";margin-top: 5px">快捷条件: </span>
+                              <button type="button" class="btn btn-success btn-xs" style="margin-bottom: 3px" onclick="inputVal('all')">所有</button>
+                              <button type="button" class="btn btn-success btn-xs" style="margin-bottom: 3px" onclick="inputVal('{{ request.session.userName }}')">{{ request.session.userName }}</button>
+                              <button id="hover-a" type="button" class="btn btn-success btn-xs" style="margin-bottom: 3px" onclick="createPeople(0)">其他</button>
                                   <div id="names" style="margin-top: 10px">
                             </div>
                                   </div>
