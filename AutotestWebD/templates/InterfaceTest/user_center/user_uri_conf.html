@@ -1,9 +1,13 @@
 {% include 'InterfaceTest/head.html'%}
 <!-- Main content starts -->
 <script type="text/javascript">
-
 </script>
-
+<style>
+    thead tr th{
+        text-align: center;
+        vertical-align: middle !important
+    }
+</style>
 <div class="content">
     <!-- Sidebar -->
         {% include 'InterfaceTest/HTTPMenu.html' %}
@@ -11,7 +15,6 @@
     <!-- Main bar -->
     <div class="right_col" role="main" style="min-height: 1657px;">
          <div class="">
-
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
@@ -20,18 +23,14 @@
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
-
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-
                     <div class="form-group">
                         <div  id="queryOption">
                             <span class="cat-text" style="font-size: 15px;float: left;margin-right: 10px">搜索条件:</span>
                         </div>
-
-
 {#                        <span class="tag"><span>sales&nbsp;&nbsp;</span><a href="#" title="Removing tag">x</a></span>#}
 {#                        <span class="tag"><span>sales&nbsp;&nbsp;</span><a href="#" title="Removing tag">x</a></span>#}
                     </div>
@@ -42,11 +41,10 @@
                         </li>
                         <li role="presentation" class=""><a href="#uriName" role="tab" data-toggle="tab" aria-expanded="true">服务名称</a>
                         </li>
-                          <li role="presentation" class=""><a href="#uriDesc" role="tab" data-toggle="tab" aria-expanded="true">服务描述</a>
+                        <li role="presentation" class=""><a href="#uriDesc" role="tab" data-toggle="tab" aria-expanded="true">服务描述</a>
                         </li>
                         <li role="presentation" class=""><a href="#uriKey" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">服务Key</a>
                         </li>
-
                       </ul>
                       <div id="myTabContent" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade active in" id="addBy" aria-labelledby="home-tab">
@@ -55,14 +53,12 @@
                                 <input type="text" class="form-control" id="addByInput" onkeypress="EnterPress(event)" placeholder="请输入创建人">
                             </div>
                               <div class="col-lg-4" >
-                                  <span style="margin-top: 5px">快捷条件: </span>
-                              <button type="button" class="btn btn-success btn-xs" style="margin-bottom: 3px" onclick="queryUserConf('all')">所有</button>
-                              <button type="button" class="btn btn-success btn-xs" style="margin-bottom: 3px" onclick="queryUserConf('{{ request.session.userName }}')">{{ request.session.userName }}</button>
-                              <button id="hover-a" type="button" class="btn btn-success btn-xs" style="margin-bottom: 3px" onclick="createPeople(0)">其他</button>
-                                  <div id="names" style="margin-top: 10px">
-                            </div>
-                                  </div>
-
+                                <span style="margin-top: 5px">快捷条件: </span>
+                                <button type="button" class="btn btn-success btn-xs" style="margin-bottom: 3px" onclick="queryUserConf('all')">所有</button>
+                                <button type="button" class="btn btn-success btn-xs" style="margin-bottom: 3px" onclick="queryUserConf('{{ request.session.userName }}')">{{ request.session.userName }}</button>
+                                <button id="hover-a" type="button" class="btn btn-success btn-xs" style="margin-bottom: 3px" onclick="createPeople(0)">其他</button>
+                                <div id="names" style="margin-top: 3px"></div>
+                              </div>
                           </div>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="uriDesc" aria-labelledby="profile-tab">
@@ -96,7 +92,7 @@
                         </div>
                       </div>
                     </div>
-                    <div id="EditVars" class="form-group" style="margin-top: 70px"></div>
+                    <div id="EditVars" class="form-group" style="margin-top: 60px"></div>
                   </div>
                 </div>
 
@@ -117,9 +113,8 @@
                     <div data-parsley-validate="" class="form-horizontal form-label-left">
                         <div class="form-group">
                             <label class="control-label col-md-min-1">服务协议</label>
-                            <div class="col-lg-8">
-                                <input type="checkbox" id="protocolHttp"  placeholder="HTTP" /> HTTP
-                                &nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="col-lg-8" style="padding: 8px 10px">
+                                <input type="checkbox" id="protocolHttp"  placeholder="HTTP" /> HTTP&nbsp;&nbsp;&nbsp;&nbsp;
                                 {% if menu.DubboInterface == 1 %}
                                 <input type="checkbox" id="protocolDubbo"  placeholder="DUBBO" /> DUBBO
                                 {% endif %}
@@ -128,7 +123,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-min-1">服务名称</label>
                             <div class="col-lg-8">
-                                <input type="text" id="addUriConfAlias" class="form-control"  placeholder="请输入配置名称(建议是git工程名，例如git@git.xxxxxxxx.com:common/sosotest.git的名称写sosotest)" >
+                                <input type="text" id="addUriConfAlias" class="form-control" style="font-size: 13px" placeholder="请输入配置名称(建议是git工程名，例如git@git.xxx.com:common/sosotest.git的名称写sosotest)" >
                             </div>
                         </div>
                          <div class="form-group">
@@ -138,27 +133,12 @@
                                 <button type="button"   class="btn btn-danger" onclick="resetAddHttpConf()">&nbsp;&nbsp;&nbsp;&nbsp;重置&nbsp;&nbsp;&nbsp;&nbsp;</button>
                             </div>
                         </div>
-
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
                     <br />
                     </div>
                   </div>
                 </div>
-
-
               </div>
             </div>
-
           </div>
     </div>
 </div>
@@ -176,7 +156,7 @@
         queryDataInit();
 
 
-        //搜索条件出的回车事件监听
+        //搜索条件处的回车事件监听
         function EnterPress(event){ //传入 event
             var e = event || window.event;
             if(e.keyCode == 13){
@@ -228,9 +208,7 @@
             $("#uriDescInput").val("");
             $("#uriKeyInput").val("");
             $("#addByInput").val("");
-
             editQueryData();
-
         }
 
         function delQueryOptions(key) {
@@ -255,7 +233,7 @@
 
         //查询条件
         function QueryOption(){
-            var htmls = ' <span class="cat-text" style="font-size: 15px;float: left;">搜索条件:</span>';
+            var htmls = ' <span class="cat-text" style="font-size: 15px;float: left;margin-right: 10px">搜索条件:</span>';
             var num =0;
             var writeNum = 0;
             for(var item in queryArr){
@@ -286,7 +264,7 @@
 
                 }
             }
-        htmls = htmls +'<span class="tag" style="float: right;background-color: #ff7575"><span>默认筛选&nbsp;&nbsp;</span><a href="javascript:void(0);" title="Removing tag" onclick="clearChecked()">x</a></span>';
+        htmls = htmls +'<span class="tag" style="float: right;background-color: #ff7575"><span>默认筛选&nbsp;&nbsp;</span><a href="javascript:void(0);" title="Removing tag" onclick="CleanQueryData()">x</a></span>';
             $('#queryOption').html(htmls);
         }
 
@@ -447,7 +425,7 @@
          }
 
         function editUserHttpConf(id,httpConfKey) {
-            $("[name='httpConfDesc"+id+"']").html("<pre><textarea  id='httpConfDescText"+id+"' style='max-width: 100%;width: 100%'>"+$("[name='httpConfDesc"+id+"']").text()+"</textarea></pre>");
+            $("[name='httpConfDesc"+id+"']").html("<textarea  id='httpConfDescText"+id+"' style='max-width: 100%;width: 100%'>"+$("[name='httpConfDesc"+id+"']").text()+"</textarea>");
             htmlobj = $.ajax({url:"{% url 'getServiceConf' %}",async:false});
             var result =htmlobj.responseText;
             var resultArr = JSON.parse(result);
@@ -462,10 +440,8 @@
             htmls = htmls + '</select>';
             $("[name='serviceAlias"+id+"']").html(htmls);
 
-            $("#opration"+id).html('<button  class="btn btn-success optionButtionSize"  onclick="saveEdit(\''+id+'\',\''+httpConfKey+'\')"><i class="fa fa-save"></i></button>' +
-                '<button class="btn btn-danger optionButtionSize" onclick="cancelEdit(\''+id+'\',\''+httpConfKey+'\')"><i class="fa fa-ban"></i></button>');
-
-
+            $("#opration"+id).html('<button  class="btn btn-success optionButtionSize"  onclick="saveEdit(\''+id+'\',\''+httpConfKey+'\')" title="保存" style="margin-right: 3px"><i class="fa fa-save"></i></button>' +
+                '<button class="btn btn-danger optionButtionSize" onclick="cancelEdit(\''+id+'\',\''+httpConfKey+'\')" title="取消"><i class="fa fa-ban"></i></button>');
         }
 
         function cancelEdit(id,httpConfKey) {
@@ -496,7 +472,8 @@
         function resetAddHttpConf() {
             if(confirm("重置后输入的值会消失")){
                 $("#addUriConfAlias").val("");
-                $("#addUriConfDesc").val("");
+                $("#protocolDubbo").prop("checked",false);
+                $("#protocolHttp").prop("checked",false);
             }
         }
 
@@ -507,7 +484,7 @@
                 protocol += "HTTP,"
             }
             if($("#protocolDubbo").prop("checked")){
-                protocol += "DUBBO,"
+                protocol += "DUBBO"
             }
             if(alias == ""){
                 alert("名称不能为空！");

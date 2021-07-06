@@ -1,9 +1,9 @@
 <div>
-    <div class="pagination" style="float:left;margin-bottom: 0px;">
+    <div class="pagination" style="float:left;margin: 5px 0px;">
         <a href="#addEnvConfDiv"><button style="margin-bottom: 4px;" class="btn btn-success" >添加</button></a>
         <a href="javascript:void(0);"><button style="margin-bottom: 4px;" class="btn btn-danger" onclick="resetUpToTopInfo();">清空置顶</button></a>
     </div>
-    <div class="pagination" style="float:right;">
+    <div class="pagination" style="float:right;margin: 5px 0px;">
         {% include 'InterfaceTest/pagination.html' %}
     </div>
 </div>
@@ -13,11 +13,11 @@
     <thead>
     <tr style="color: snow" bgcolor="#2A3F54">
         <th style="width:8%;">服务Key</th>
-        <th style="width:10%;">配置名称</th>
-        <th style="width:15%;">配置描述</th>
-        <th style="width:12%;">创建时间/创建人</th>
-        <th style="width:12%;">修改时间/修改人</th>
-        <th style="width:5%;">操作</th>
+        <th style="width:8%;">服务名称</th>
+        <th style="width:15%;">服务描述</th>
+        <th style="width:15%;">创建时间/创建人</th>
+        <th style="width:15%;">修改时间/修改人</th>
+        <th style="width:7%;">操作</th>
     </tr>
     </thead>
     <tbody style="width: 100%">

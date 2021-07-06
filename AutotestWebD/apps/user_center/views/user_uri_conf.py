@@ -137,7 +137,6 @@ def addUserUriApply(request):
                     data.state = 1
                     data.save()
                 else:
-
                     tmpUriModel.id = id
                     tmpUriModel.alias = uriAlias
                     tmpUriModel.uriDesc = "%s的%s服务" % (uriKey,tmpProtocol)

@@ -57,6 +57,10 @@
             z-index: 1002;
             overflow: auto;
         }
+        thead tr th{
+            text-align: center;
+            vertical-align: middle !important
+        }
     </style>
 <div class="content">
     <!-- Sidebar -->
@@ -115,7 +119,7 @@
                               <button type="button" class="btn btn-success btn-xs" style="margin-bottom: 3px" onclick="queryUserConf('all')">所有</button>
                               <button type="button" class="btn btn-success btn-xs" style="margin-bottom: 3px" onclick="queryUserConf('{{ request.session.userName }}')">{{ request.session.userName }}</button>
                               <button id="hover-a" type="button" class="btn btn-success btn-xs" style="margin-bottom: 3px" onclick="createPeople(0)">其他</button>
-                                  <div id="names" style="margin-top: 10px">
+                                  <div id="names" style="margin-top: 3px">
                             </div>
                                   </div>
 
@@ -219,7 +223,7 @@
                       </div>
                   </div>
 
-                    <div id="EditVars" class="form-group" style="margin-top: 70px"></div>
+                    <div id="EditVars" class="form-group" style="margin-top: 60px"></div>
                   </div>
                 </div>
               </div>
@@ -295,13 +299,12 @@
 
         //清空查询条件
         function CleanQueryData() {
-            $("#uriNameInput").val("");
-            $("#uriDescInput").val("");
-            $("#uriKeyInput").val("");
-            $("#addByInput").val("");
-
+            $("#addBySearchText").val("");
+            $("#protocolSelect").val("");
+            $("#httpConfKeySearchSelect").val("");
+            $("#uriKeySearchSelect").val("");
+            $("#requestAddrSearchText").val("");
             editQueryData();
-
         }
 
         function delQueryOptions(key) {
@@ -317,7 +320,6 @@
             if(key=='uriKey'){
                 $("#uriKeySearchSelect").val('');
             }
-
             if(key=='requestAddr'){
                 $("#requestAddrSearchText").val('');
             }
@@ -326,7 +328,7 @@
 
         //查询条件
         function QueryOption(){
-            var htmls = ' <span class="cat-text" style="font-size: 15px;float: left;">搜索条件:</span>';
+            var htmls = ' <span class="cat-text" style="font-size: 15px;float: left;margin-right: 10px">搜索条件:</span>';
             var num =0;
             var writeNum = 0;
             for(var item in queryArr){
@@ -356,11 +358,11 @@
                     }
 
                     writeNum ++ ;
-                    htmls = htmls+'<span class="tag"><span>'+key+'：'+queryArr[item]+'&nbsp;&nbsp;</span><a href="javascript:void(0);" title="Removing tag" onclick="delQueryOptions(\''+item+'\')">x</a></span> ';
+                    htmls = htmls+'<span class="tag"><span>'+key+'：'+queryArr[item]+'&nbsp;&nbsp;</span><a href="javascript:void(0);" title="Removing tag" onclick="delQueryOptions(\''+item+'\')">X</a></span> ';
 
                 }
             }
-        htmls = htmls +'<span class="tag" style="float: right;background-color: #ff7575"><span>默认筛选&nbsp;&nbsp;</span><a href="javascript:void(0);" title="Removing tag" onclick="clearChecked()">x</a></span>';
+        htmls = htmls +'<span class="tag" style="float: right;background-color: #ff7575"><span>默认筛选&nbsp;&nbsp;</span><a href="javascript:void(0);" title="Removing tag" onclick="CleanQueryData()">X</a></span>';
             $('#queryOption').html(htmls);
         }
 

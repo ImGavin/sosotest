@@ -1,9 +1,9 @@
 <div>
-    <div class="pagination" style="float:left;margin-bottom: 0px;">
+    <div class="pagination" style="float:left;margin: 5px 0px;">
         <a href="#addEnvConfDiv"><button style="margin-bottom: 4px;" class="btn btn-success" >添加</button></a>
         <a href="javascript:void(0);"><button style="margin-bottom: 4px;" class="btn btn-danger" onclick="resetUpToTopInfo();">清空置顶</button></a>
     </div>
-    <div class="pagination" style="float:right;">
+    <div class="pagination" style="float:right;margin: 5px 0px">
         {% include 'InterfaceTest/pagination.html' %}
     </div>
 </div>
@@ -14,13 +14,13 @@
     <tr style="color: snow" bgcolor="#2A3F54">
         <th style="width:8%;">环境KEY</th>
 {#        <th >配置信息</th>#}
-        <th style="width:10%;">配置名称</th>
-        <th style="width:15%;">配置描述</th>
+        <th style="width:8%;">环境名称</th>
+        <th style="width:13%;">环境描述</th>
         <th style="width:10%;">数据服务器</th>
         <th style="width:8%;">创建人</th>
-        <th style="width:8%;">创建时间</th>
-        <th style="width:8%;">修改时间</th>
-        <th style="width:9%;">操作</th>
+        <th style="width:11%;">创建时间</th>
+        <th style="width:11%;">修改时间</th>
+        <th style="width:8%;">操作</th>
     </tr>
     </thead>
     <tbody style="width: 100%">
@@ -36,7 +36,7 @@
                 <td>{{ pageData.userName }}</td>
                 <td>{{ pageData.addTime }}</td>
                 <td>{{ pageData.modTime }} </td>
-                <td style="text-align: center">
+                <td>
                     <div style="margin-top: -10px" id="opration{{ pageData.id }}">
                         <button class="btn btn-info optionButtionSize" onclick="addVarsSort('{{ pageData.httpConfKey }}')" title="置顶"><i class="fa fa-eject"></i></button>
                 {% if  "edit" in pageData.permissions %}

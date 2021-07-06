@@ -1,8 +1,8 @@
 <div>
-    <div class="pagination" style="float:left;margin-bottom: 0px;">
+    <div class="pagination" style="float:left;margin:5px 0px;">
         <button style="margin-bottom: 4px;" class="btn btn-success" onclick="addEnvConf()">添加</button>
     </div>
-    <div class="pagination" style="float:right;;margin-bottom: 0px;">
+    <div class="pagination" style="float:right;;margin:5px 0px;">
         {% include 'InterfaceTest/pagination.html' %}
     </div>
 </div>
@@ -11,11 +11,11 @@
        style="table-layout:fixed;width:100%;word-break:break-all;margin-top:8px">
     <thead>
     <tr style="color: snow" bgcolor="#2A3F54">
-        <th style="width:4%;">id</th>
-        <th style="width:8%;">环境key</th>
+        <th style="width:3%;">id</th>
+        <th style="width:6%;">环境key</th>
         <th style="width:8%;">服务Key</th>
-        <th style="width:8%;">协议</th>
-        <th style="width:16%;">请求地址</th>
+        <th style="width:6%;">协议</th>
+        <th style="width:15%;">请求地址</th>
         <th style="width:12%;">创建时间/创建人</th>
         <th style="width:12%;">修改时间/修改人</th>
         <th style="width:5%;">操作</th>
@@ -27,7 +27,7 @@
     {% else %}
           {% for pageData in pageDatas %}
             <tr>
-                <td id="id{{ pageData.id }}">{{ pageData.id }}</td>
+                <td id="id{{ pageData.id }}" style="text-align: center">{{ pageData.id }}</td>
                 <td id="httpConfKey{{ pageData.id }}"><textarea class="list_textarea"  disabled>{{ pageData.httpConfKey }}</textarea></td>
                 <td id="uriKey{{ pageData.id }}"><textarea class="list_textarea"  disabled>{{ pageData.uriKey }}</textarea></td>
                 <td id="protocol{{ pageData.id }}"><textarea class="list_textarea"  disabled>{{ pageData.protocol }}</textarea></td>
