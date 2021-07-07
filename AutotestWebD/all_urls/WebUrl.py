@@ -205,7 +205,8 @@ urlpatterns = [
     url(r'^interfaceTest/HTTP_HttpConfDel$', user_http_conf.delHttpConfKey, name="HTTP_HttpConfDel"),
     url(r'^interfaceTest/HTTP_HttpConfEdit$', user_http_conf.httpConfSaveEdit, name="HTTP_HttpConfEdit"),
     url(r'^interfaceTest/HTTP_delAllUserHttpConf$', user_http_conf.delAllUserHttpConf, name="HTTP_DelAllUserHttpConf"),
-    #服务配置
+
+    # 服务配置
     url(r'^interfaceTest/HTTP_UriConf$', user_uri_conf.userUriCheck, name="HTTP_UserUriConf"),
     url(r'^interfaceTest/HTTP_UserUriConfListCheck$', user_uri_conf.queryUserUriConf,name="HTTP_UserUriConfListCheck"),
     url(r'^interfaceTest/HTTP_UserAddUserUriSort$', user_uri_conf.addUserUriSort,name="HTTP_UserAddUserUriSort"),

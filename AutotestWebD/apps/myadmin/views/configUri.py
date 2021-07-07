@@ -63,6 +63,7 @@ def addConfigUri(request):
             result.uriDesc = configUriData["uriDesc"]
             result.level = configUriData["level"]
             result.protocol = configUriData["protocol"]
+            result.addBy = request.session.get("adminLoginName")
             result.save()
             if result:
                 logger.info("addConfigUri uri添加成功 %s" % result)
@@ -70,6 +71,7 @@ def addConfigUri(request):
         else:
             if searchResult.state == 0:
                 searchResult.state = 1
+                searchResult.modBy = request.session.get("adminLoginName")
                 searchResult.save()
                 return HttpResponse(ApiReturn().toJson())
             else:
@@ -84,12 +86,12 @@ def addConfigUri(request):
 def editConfigUri(request):
     try:
         requestDict = json.loads(request.POST.get("uriData"))
+        requestDict["modBy"] = request.session.get("adminLoginName")
         ConfigUriService.updateConfigUri(requestDict)
     except Exception as e:
         message = "编辑uri发生异常 %s" % e
         logger.info(message)
         return HttpResponse(ApiReturn(code=ApiReturn.CODE_WARNING,message=message).toJson())
-
     return HttpResponse(ApiReturn().toJson())
 
 def delConfigUri(request):
@@ -101,6 +103,7 @@ def delConfigUri(request):
     except Exception as e:
         return HttpResponse(ApiReturn(ApiReturn.CODE_WARNING,message="uriKey查询错误 %s" % e).toJson())
     configUriData.state = 0
+    configUriData.modBy = request.session.get("adminLoginName")
     configUriData.save()
 
     return HttpResponse(ApiReturn().toJson())
@@ -114,6 +117,7 @@ def resetConfigUri(request):
     except Exception as e:
         return HttpResponse(ApiReturn(ApiReturn.CODE_WARNING,message="configUriId查询错误 %s" % e).toJson())
     configUriData.state = 1
+    configUriData.modBy = request.session.get("adminLoginName")
     configUriData.save()
 
     return HttpResponse(ApiReturn().toJson())

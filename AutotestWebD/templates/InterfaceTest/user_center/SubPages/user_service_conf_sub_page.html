@@ -8,15 +8,13 @@
        style="table-layout:fixed;width:100%;word-break:break-all;margin-top:8px">
     <thead>
     <tr style="color: snow" bgcolor="#2A3F54">
-        <th style="width:8%;">DB_SERVICE_KEY</th>
-{#        <th >配置信息</th>#}
-        <th style="width:10%;">配置名称</th>
+        <th style="width:10%;">服务KEY</th>
+        <th style="width:12%;">配置名称</th>
         <th style="width:15%;">配置描述</th>
-        <th style="width:30%;">配置value</th>
-        <th style="width:8%;">创建人</th>
-        <th style="width:8%;">创建时间</th>
-        <th style="width:8%;">修改时间</th>
-{#        <th style="width:9%;">操作</th>#}
+        <th style="width:30%;">服务配置信息</th>
+        <th style="width:15%;">创建时间/创建人</th>
+        <th style="width:15%;">修改时间/修改人</th>
+<!--        <th style="width:9%;">操作</th>-->
     </tr>
     </thead>
     <tbody style="width: 100%">
@@ -29,19 +27,17 @@
                 <td name="alias{{ pageData.id }}"><textarea class="list_textarea"  disabled>{{ pageData.alias }}</textarea></td>
                 <td name="serviceConfDesc{{ pageData.id }}"><textarea class="list_textarea"  disabled>{{ pageData.serviceConfDesc }}</textarea></td>
                 <td name="serviceAlias{{ pageData.id }}"><textarea style="width: 100%;height: 50px;min-width: 100%;max-width: 100%;" disabled >{{ pageData.serviceConf }}</textarea></td>
-                <td>{{ pageData.addBy }}</td>
-                <td>{{ pageData.addTime }}</td>
-                <td>{{ pageData.modTime }} </td>
-{#                <td style="text-align: center">#}
-{#                    <div style="margin-top: -10px" id="opration{{ pageData.id }}">#}
-{#                        <button class="btn btn-info optionButtionSize" onclick="addVarsSort('{{ pageData.httpConfKey }}')" title="置顶"><i class="fa fa-eject"></i></button>#}
-{#                {% if  request.session.loginName == pageData.addBy or userIsSuperManager == 1 %}#}
-{#                        <button class="btn btn-success optionButtionSize" onclick="editUserHttpConf('{{ pageData.id }}','{{ pageData.httpConfKey }}')" title="编辑"><i class="fa fa-edit"></i></button>#}
-{#                        <button class="btn btn-danger optionButtionSize" onclick="delUserHttpConf('{{ pageData.id }}','{{ pageData.httpConfKey }}');" title="删除"><i class="fa fa-trash"></i></button>#}
-{#                {% endif %}#}
-{#                    </div>#}
-{#                </td>#}
-
+                <td>{{ pageData.addTime }} / {{ pageData.addBy }}</td>
+                <td>{{ pageData.modTime }} / {{ pageData.modBy }}</td>
+<!--                <td style="text-align: center">-->
+<!--                    <div style="margin-top: -10px" id="opration{{ pageData.id }}">-->
+<!--                        <button class="btn btn-info optionButtionSize" onclick="addVarsSort('{{ pageData.httpConfKey }}')" title="置顶"><i class="fa fa-eject"></i></button>-->
+<!--                {% if  request.session.loginName == pageData.addBy or userIsSuperManager == 1 %}-->
+<!--                        <button class="btn btn-success optionButtionSize" onclick="editUserHttpConf('{{ pageData.id }}','{{ pageData.httpConfKey }}')" title="编辑"><i class="fa fa-edit"></i></button>-->
+<!--                        <button class="btn btn-danger optionButtionSize" onclick="delUserHttpConf('{{ pageData.id }}','{{ pageData.httpConfKey }}');" title="删除"><i class="fa fa-trash"></i></button>-->
+<!--                {% endif %}-->
+<!--                    </div>-->
+<!--                </td>-->
             </tr>
             <td id="hiddenTR{{ pageData.id }}" colspan="8" align="center"  style="display: none;">
             {% if menu.HttpInterface == 1 %}

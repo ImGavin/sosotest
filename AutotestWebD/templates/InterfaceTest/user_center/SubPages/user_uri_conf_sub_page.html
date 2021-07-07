@@ -29,8 +29,8 @@
                 <td name="httpConfKey{{ pageData.id }}"><textarea class="list_textarea"  disabled>{{ pageData.uriKey }}</textarea></td>
                 <td name="alias{{ pageData.id }}"><textarea class="list_textarea"  disabled>{{ pageData.alias }}</textarea></td>
                 <td name="httpConfDesc{{ pageData.id }}"><textarea class="list_textarea"  disabled>{{ pageData.uriDesc }}</textarea></td>
-                <td>{{ pageData.addTime }}/{{ pageData.userName }}</td>
-                <td>{{ pageData.modTime }}/{% if pageData.modByName %}                        {{ pageData.modByName }}                    {% else %}                        {{ pageData.userName }}                    {% endif %}</td>
+                <td>{{ pageData.addTime }}/{% if pageData.userName %} {{ pageData.userName }} {% else %} {{ pageData.addBy }} {% endif %}</td>
+                <td>{{ pageData.modTime }}/{% if pageData.modByName %} {{ pageData.modByName }} {% else %} {{ pageData.modBy }} {% endif %}</td>
 
                 <td style="text-align: center">
                     <div style="margin-top: -10px" id="opration{{ pageData.id }}">

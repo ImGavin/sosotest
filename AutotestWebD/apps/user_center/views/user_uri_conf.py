@@ -57,6 +57,9 @@ def queryUserUriConf(request):
         return HttpResponse("<script>alert('请验证页数参数');</script>")
     checkArr = json.loads(parse.unquote(request.POST.get("queryArr")))
 
+    # 这里有个问题，因为后台也能创建服务uri，且后台用户与前台用户不是一套用户，所以如果是后台用户创建的数据，前台展示时创建人/修改人处是没有数据的
+    # 临时的解决方案是，前台展示时，优先展示前台用户数据，没有数据的情况下展示后台用户名
+    # （前后台用户账号一致时，优先查tb_user表的用户名进行展示，查不到的情况下展示对应的后台的管理员账号）
     execSql = "SELECT s.*,tb_user.userName,muser.userName modByName FROM tb_config_uri s LEFT JOIN tb_user ON s.addBy=tb_user.loginName LEFT JOIN tb_user muser ON s.modBy=muser.loginName " \
               "LEFT JOIN (SELECT * FROM ( SELECT id ucid,uriKey uuUriKey,conflevel FROM tb_user_uri " \
               "WHERE addBy= '%s' ) b LEFT JOIN (SELECT uriKey cuUriKey FROM tb_config_uri) a ON b.uuUrikey = a.cuUriKey) c ON s.uriKey = c.cuUriKey  " \
@@ -135,6 +138,8 @@ def addUserUriApply(request):
                 if len(oldData) > 0:
                     data = oldData[0]
                     data.state = 1
+                    data.addBy = loginName
+                    data.modBy = loginName
                     data.save()
                 else:
                     tmpUriModel.id = id
@@ -143,6 +148,7 @@ def addUserUriApply(request):
                     tmpUriModel.uriKey = uriKey
                     tmpUriModel.protocol = protocol
                     tmpUriModel.addBy = loginName
+                    tmpUriModel.modBy = loginName
                     tmpUriModel.save(force_insert=True)
             except Exception as e:
                 print(traceback.format_exc())

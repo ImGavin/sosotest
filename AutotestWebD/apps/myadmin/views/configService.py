@@ -51,9 +51,10 @@ def getConfigServiceForId(request):
 def addConfigService(request):
     configServiceData = json.loads(request.POST.get("configServiceData"))
     logger.info("addconfigService %s" % request.POST.get("configServiceData"))
-    searchResult = TbConfigService.objects.filter(serviceConfKey=configServiceData["serviceConfKey"], alias=configServiceData["alias"])
     if not isJson(configServiceData["serviceConf"]):
         return HttpResponse(ApiReturn(code=ApiReturn.CODE_WARNING, message="配置文件必须为json格式").toJson())
+
+    searchResult = TbConfigService.objects.filter(serviceConfKey=configServiceData["serviceConfKey"], alias=configServiceData["alias"])
     try:
         if len(searchResult) == 0:
             result = TbConfigService()
@@ -61,12 +62,15 @@ def addConfigService(request):
             result.alias = configServiceData["alias"]
             result.serviceConfDesc = configServiceData["serviceConfDesc"]
             result.serviceConf = configServiceData["serviceConf"]
+            # 目前添加、编辑数据服务权限只对后台开放，所以这里只记录后台用户的信息
+            result.addBy = request.session.get("adminLoginName")
             result.save()
             if result:
                 logger.info("addConfigService 数据服务器添加成功 %s" % result)
             return HttpResponse(ApiReturn().toJson())
         else:
             if searchResult.state == 0:
+                searchResult.modBy = request.session.get("adminLoginName")
                 searchResult.state = 1
                 searchResult.save()
                 return HttpResponse(ApiReturn().toJson())
@@ -82,9 +86,10 @@ def addConfigService(request):
 def editConfigService(request):
     try:
         requestDict = json.loads(request.POST.get("configServiceData"))
-        requestDict["modBy"] = request.session.get("userName")
         if not isJson(requestDict["serviceConf"]):
             return HttpResponse(ApiReturn(code=ApiReturn.CODE_WARNING, message="配置文件必须为json格式").toJson())
+        # 目前添加、编辑数据服务权限只对后台开放，所以这里只记录后台用户的信息
+        requestDict["modBy"] = request.session.get("adminLoginName")
         ConfigService.updateConfigService(requestDict)
     except Exception as e:
         message = "编辑数据服务器发生异常 %s" % e

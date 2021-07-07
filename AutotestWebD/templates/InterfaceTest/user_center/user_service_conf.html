@@ -3,7 +3,11 @@
 <script type="text/javascript">
 
 </script>
-
+<style type="text/css">
+    thead tr th{
+        text-align: center;
+    }
+</style>
 <div class="content">
     <!-- Sidebar -->
         {% include 'InterfaceTest/HTTPMenu.html' %}
@@ -15,37 +19,14 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>数据配置：mysqldb-redis-mongodb配置</h2>
-{#                      <h2 class="subNavH2Style">#}
-{#                                    <a href="{% url 'HTTP_UserHttpConf' %}">#}
-{#                                        <button class="btn btn-info">#}
-{#                                           环境配置#}
-{#                                          </button>#}
-{#                                    </a>#}
-{#                                </h2>#}
-{#                      <h2 class="subNavH2Style">#}
-{#                                    <a href="{% url 'HTTP_UserUriConf' %}">#}
-{#                                        <button class="btn btn-info">#}
-{#                                           服务配置#}
-{#                                          </button>#}
-{#                                    </a>#}
-{#                                </h2>#}
-{#                        <h2 class="subNavH2Style">#}
-{#                                    <a href="{% url 'HTTP_UserEnvUriConf' %}">#}
-{#                                        <button class="btn btn-info">#}
-{#                                           请求地址配置#}
-{#                                          </button>#}
-{#                                    </a>#}
-{#                                </h2>#}
+                    <h2>数据库配置：MySQL、Redis配置</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
-
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-
                     <div class="form-group">
                         <div  id="queryOption">
                             <span class="cat-text" style="font-size: 15px;float: left;margin-right: 10px">搜索条件:</span>
@@ -65,33 +46,31 @@
                         <div role="tabpanel" class="tab-pane fade" id="varDesc" aria-labelledby="profile-tab">
                           <div class="form-group">
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" id="varDescInput" onkeypress="EnterPress(event)" placeholder="请输入配置描述" >
+                                <input type="text" class="form-control" id="varDescInput" onkeypress="EnterPress(event)" placeholder="请输入数据服务配置描述" >
                             </div>
                           </div>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="serviceConf" aria-labelledby="profile-tab">
                           <div class="form-group">
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" id="serviceConfInput" onkeypress="EnterPress(event)" placeholder="请输入配置信息">
+                                <input type="text" class="form-control" id="serviceConfInput" onkeypress="EnterPress(event)" placeholder="请输入数据服务配置信息">
                             </div>
                           </div>
                         </div>
                         <div role="tabpanel" class="tab-pane fade active in" id="varName" aria-labelledby="profile-tab">
                           <div class="form-group">
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" id="varNameInput" onkeypress="EnterPress(event)" placeholder="请输入配置名称">
+                                <input type="text" class="form-control" id="varNameInput" onkeypress="EnterPress(event)" placeholder="请输入数据服务配置名称">
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div id="EditVars" class="form-group" style="margin-top: 70px"></div>
+                    <div id="EditVars" class="form-group" style="margin-top: 60px"></div>
                   </div>
                 </div>
-
               </div>
             </div>
-
           </div>
     </div>
 </div>
@@ -106,7 +85,7 @@
             editQueryData();
         }
         queryDataInit();
-        //搜索条件出的回车事件监听
+        //搜索条件处的回车事件监听
         function EnterPress(event){ //传入 event
             var e = event || window.event;
             if(e.keyCode == 13){
@@ -151,7 +130,6 @@
             $("#varDescInput").val("");
             $("#serviceConfInput").val("");
             editQueryData();
-
         }
 
         function delQueryOptions(key) {
@@ -191,18 +169,18 @@
                         key = '配置信息';
                     }
                     writeNum ++ ;
-                    htmls = htmls+'<span class="tag"><span>'+key+'：'+queryArr[item]+'&nbsp;&nbsp;</span><a href="javascript:void(0);" title="Removing tag" onclick="delQueryOptions(\''+item+'\')">x</a></span> ';
+                    htmls = htmls+'<span class="tag"><span>'+key+'：'+queryArr[item]+'&nbsp;&nbsp;</span><a href="javascript:void(0);" title="Removing tag" onclick="delQueryOptions(\''+item+'\')">X</a></span> ';
 
                 }
             }
-        htmls = htmls +'<span class="tag" style="float: right;background-color: #ff7575"><span>默认筛选&nbsp;&nbsp;</span><a href="javascript:void(0);" title="Removing tag" onclick="clearChecked()">x</a></span>';
+            htmls = htmls +'<span class="tag" style="float: right;background-color: #ff7575"><span>默认筛选&nbsp;&nbsp;</span><a href="javascript:void(0);" title="Removing tag" onclick="CleanQueryData()">X</a></span>';
             $('#queryOption').html(htmls);
         }
 
+        function inputVal(val) {
+            editQueryData();
+        }
 
-    function inputVal(val) {
-        editQueryData();
-    }
         //翻页
         function pageCall(pageNum) {
             page = pageNum;
@@ -216,7 +194,6 @@
             htmlobj=$.ajax({url:"{% url 'HTTP_UserServiceConfListCheck' %}",async:false,data:data,type:"POST"});
             $("#EditVars").html(htmlobj.responseText);
         }
-
 
         window.onload = function() {
             $("#surprise").click();
