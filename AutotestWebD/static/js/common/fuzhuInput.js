@@ -51,7 +51,7 @@ function resetGlobalElement(element,codeEditor) {
         elementValue = codeEditor.getValue();
     }
     if(elementValue.trim().match(/^\#(\s)*python/g)){
-            lastModeType = "PY";
+        lastModeType = "PY";
     }
     ChangeFuzhuType(lastModeType);
     setFuzhuHeight();
@@ -118,8 +118,10 @@ function resetPublicKey(key) {
 }
 
 function setFuzhuHeight(){
-    $("#right").css('height', window.innerHeight*0.85);
-    $("#publicKeyDiv").css('height', window.innerHeight*0.85);
+    $("#right").css("top", $(document).scrollTop()+window.innerHeight*0.10-3);
+    $("#right").css('height', window.innerHeight*0.88);
+    $("#publicKeyDiv").css('height', window.innerHeight*0.88);
+    $("#publicKeyPyDiv").css('height', window.innerHeight*0.88);
 }
 
 function OpenDetailDiv(title,content){
@@ -148,6 +150,6 @@ function CloseDetailDiv(show_div,bg_div){
 }
 
 window.onscroll = function () {
-    $("#right").css("top", $(document).scrollTop()+window.innerHeight*0.1 );
     setFuzhuHeight();
+    // $("#right").css("top", $(document).scrollTop()+window.innerHeight*0.1-3);
 };
