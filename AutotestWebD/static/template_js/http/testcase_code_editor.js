@@ -1,9 +1,8 @@
-var codeEditor = {}
+var codeEditor = {};
 function initAllEditor(stepNum){
-    //readOnly:'nocursor',
-    //
+    //readOnly:'nocursor'
+    // 准备阶段
     var beforeElement = $("#commonValBefore__"+stepNum).find("[name='commonValBefore']");
-    var afterElement = $("#commonValAfter__"+stepNum).find("[name='commonValAfter']");
     codeEditor["before_testCaseStep_"+stepNum] = CodeMirror.fromTextArea(beforeElement[0], {
         lineNumbers: true,
         matchBrackets: true,
@@ -17,13 +16,15 @@ function initAllEditor(stepNum){
     codeEditor["before_testCaseStep_"+stepNum].on("blur",function(editor,change){
         setTimeout(function(){
             // codeEditor["before_testCaseStep_"+stepNum].setValue(codeEditor["before_testCaseStep_"+stepNum].getValue().trim().replace("\t","    "));
-            // renderDivByData(codeEditor["before_testCaseStep_"+stepNum].getValue(),"commonValBeforeInputLinkDiv");
+            renderDivByData(codeEditor["before_testCaseStep_"+stepNum].getValue(),"commonValBeforeInputLinkDiv");
           },200);
-        renderDivByData(codeEditor["before_testCaseStep_"+stepNum].getValue(),"commonValBeforeInputLinkDiv");
     });
     codeEditor["before_testCaseStep_"+stepNum].setOption("extraKeys", {
         Tab: newTab
     });
+
+    // 断言恢复阶段
+    var afterElement = $("#commonValAfter__"+stepNum).find("[name='commonValAfter']");
     codeEditor["after_testCaseStep_"+stepNum] = CodeMirror.fromTextArea(afterElement[0], {
         lineNumbers: true,
         matchBrackets: true,
@@ -37,14 +38,14 @@ function initAllEditor(stepNum){
     codeEditor["after_testCaseStep_"+stepNum].on("blur",function(editor,change){
         setTimeout(function(){
             // codeEditor["after_testCaseStep_"+stepNum].setValue(codeEditor["after_testCaseStep_"+stepNum].getValue().trim().replace("\t","    "));
-            // renderDivByData(codeEditor["after_testCaseStep_"+stepNum].getValue(),"commonValAfterInputLinkDiv");
+            renderDivByData(codeEditor["after_testCaseStep_"+stepNum].getValue(),"commonValAfterInputLinkDiv");
           },200);
-        renderDivByData(codeEditor["after_testCaseStep_"+stepNum].getValue(),"commonValAfterInputLinkDiv");
     });
     codeEditor["after_testCaseStep_"+stepNum].setOption("extraKeys", {
         Tab: newTab
     });
 
+    // 查看状态时，编辑器设置为只读
     if( optionFromContext === "check"){
         codeEditor["before_"+stepNum].setOption("readOnly", true);
         codeEditor["after_"+stepNum].setOption("readOnly", true);
