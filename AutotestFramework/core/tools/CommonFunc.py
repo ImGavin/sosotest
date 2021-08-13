@@ -5903,8 +5903,8 @@ def validatePythoCodeFromUser(pythonCode):
     if re.match("[\d\D]*exec( *)\([\d\D]*",pythonCode):
         return False,"不允许执行exec。"
 
-    if re.match("[\d\D]*eval( *)\([\d\D]*",pythonCode):
-        return False,"不允许执行eval。"
+    # if re.match("[\d\D]*eval( *)\([\d\D]*",pythonCode):
+    #     return False,"不允许执行eval。"
 
     if ".globalDB" in pythonCode:
         return False,"不能使用上下文中的globalDB。"

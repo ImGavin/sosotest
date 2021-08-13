@@ -7,8 +7,8 @@ def verifyPythonMode(verStr):
     if re.match("[\d\D]*exec( *)\([\d\D]*",verStr):
         return False,"不允许执行exec。"
 
-    if re.match("[\d\D]*eval( *)\([\d\D]*",verStr):
-        return False,"不允许执行eval。"
+    # if re.match("[\d\D]*eval( *)\([\d\D]*",verStr):
+    #     return False,"不允许执行eval。"
 
     if ".globalDB" in verStr:
         return False,"不能使用上下文中的globalDB。"

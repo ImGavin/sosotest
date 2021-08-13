@@ -91,11 +91,17 @@ var orderBy = "u.id desc";
         var businessLineRequestBody = context.getAllBusinessLines();
         var moduleNameRequestBody = context.getAllModuleNames();
 
-         $('.select2').select2();
+        $('.select2').select2();
+
+        // 每次打开新增框时，需要先清空选项，不然重复多次打开时，选项会累加
+        $("#businessLine").empty();
 
         for (var businessLine in businessLineRequestBody){
             $("#businessLine").append('<option value="'+businessLineRequestBody[businessLine]+'"> '+businessLineRequestBody[businessLine] +'</option>');
         }
+
+        // 每次打开新增框时，需要先清空选项，不然重复多次打开时，选项会累加
+        $("#module").empty();
 
         for (var moduleName in moduleNameRequestBody){
             $("#module").append('<option value="'+ moduleNameRequestBody[moduleName]+'"> '+ moduleNameRequestBody[moduleName] +' </option>');
@@ -156,6 +162,8 @@ var orderBy = "u.id desc";
 
         var moduleNamesRequestBody = context.getAllModuleNames();
 
+        // 每次打开编辑框时，需要先清空选项，不然重复多次打开时，选项会累加
+        $("#businessLine").empty();
         for (var businessLineIndex in businessLinesRequestBody) {
                     $("#businessLine").append('<option value="' + businessLinesRequestBody[businessLineIndex] + '">' + businessLinesRequestBody[businessLineIndex] + '</option>');
                 }
@@ -169,7 +177,8 @@ var orderBy = "u.id desc";
 
         $('.select2').select2();
 
-
+        // 每次打开编辑框时，需要先清空选项，不然重复多次打开时，选项会累加
+        $("#module").empty();
 
         for (var moduleNameIndex in moduleNamesRequestBody) {
             $("#module").append('<option value="' + moduleNamesRequestBody[moduleNameIndex] + '">' + moduleNamesRequestBody[moduleNameIndex] + '</option>');
